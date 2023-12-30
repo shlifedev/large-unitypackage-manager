@@ -13,9 +13,16 @@ class Program
     {
 
 
-        var fm = new FileManager(@"H:\Tera\Unity Assets", ".*\\.unitypackage|zip|7z"); 
+        var fm = new FileManager(@"C:\Users\shlif\Desktop\Telegram\Down", ".*\\.unitypackage|zip|7z"); 
         await fm.Initialize();
-        
+
+  
+        UserInput(fm);
+
+    }
+
+    static void UserInput(FileManager fm)
+    {
         while (true)
         {
             Console.WriteLine("입력 옵션을 선택해 주십시오: 태그 검색 (1), 파일 이름 검색 (2)");
@@ -58,6 +65,6 @@ class Program
                 Console.WriteLine("선택 사항이 잘못되었습니다.");
             }
         }
-    } 
+    }
  
 }

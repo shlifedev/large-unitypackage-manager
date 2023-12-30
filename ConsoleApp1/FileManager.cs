@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.IO.Compression;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace ConsoleApp1;
@@ -39,9 +40,7 @@ public class FileManager
             if (matches.Count > 0)
             {
                 var matchedKeywords = matches.Cast<Match>().Select(match => match.Value).ToList();
-                node.Tags = matchedKeywords;
-                // Console.WriteLine($"'{node.Name}' has matching tags! {string.Join(", ", matchedKeywords)}");
-                // Console.WriteLine($"Tags for '{node.Name}': {string.Join(", ", node.Tags)}");
+                node.Tags = matchedKeywords; 
             }
 
             progressedFileCount++;
@@ -49,7 +48,51 @@ public class FileManager
             Console.WriteLine($"{progressedFileCount}");
             return Task.CompletedTask;
         }; 
-        root = await TraverseTreeAsync(path, filePattern, modifyFile); 
+        root = await TraverseTreeAsync(path, filePattern, modifyFile);
+        PrintFileSystemTree(root, "ㄴ");
+        
+        
+    }
+    public void ExtreactFileFromZipWhenPatternMatched(string filePath, string searchPattern, bool shouldDeleteZip = false)
+    {
+
+        Console.WriteLine($"{filePath} 의 압축을 해제합니다. {searchPattern} 가 적용되고 원본 파일은 삭제{(shouldDeleteZip ? "됩니다." : "되지 않습니다.")}");
+        Regex regex = new Regex(@"\.(zip|7z|tar)$");
+        if (!regex.IsMatch(filePath))
+        {
+            return;
+        }
+        var fileRegex = new Regex(searchPattern);
+    
+        using (var zip = ZipFile.OpenRead(filePath))
+        {
+            string extractPath = Path.GetDirectoryName(filePath);
+            string zipFileNameWithoutExt = Path.GetFileNameWithoutExtension(filePath);
+            int fileCounter = 1; // Initialize counter
+
+            foreach (var entry in zip.Entries)
+            {
+                if (fileRegex.Match(entry.Name).Success)
+                {
+                    string newFileName = $"{zipFileNameWithoutExt}--({Path.GetFileNameWithoutExtension(entry.Name)}){Path.GetExtension(entry.Name)}";
+                    entry.ExtractToFile(Path.Combine(extractPath, newFileName), overwrite: true);
+                }
+            }
+
+            if (shouldDeleteZip)
+            {
+                File.Delete(filePath);
+            }
+        }
+    }
+    void PrintFileSystemTree(FileSystemNode node, string indent)
+    {
+        var nodeType = node.NodeType == NodeType.Directory ? "<D>" : "<F>";
+        Console.WriteLine($"{indent}{node.Name} {nodeType}");
+        foreach (var child in node.Children)
+        {
+            PrintFileSystemTree(child, indent + "\t");
+        }
     }
     public void FindFilesByName(FileSystemNode node, string targetFileName, List<string> matchingFiles)
     {
