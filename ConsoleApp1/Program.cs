@@ -13,7 +13,7 @@ class Program
     {
 
 
-        var fm = new FileManager(@"H:\Tera\Unity Assets", ".*\\.unitypackage"); 
+        var fm = new FileManager(@"H:\Tera\Unity Assets", ".*\\.unitypackage|zip|7z"); 
         await fm.Initialize();
         
         while (true)

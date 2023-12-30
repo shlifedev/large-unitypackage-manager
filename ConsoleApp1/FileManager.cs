@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace ConsoleApp1;
 
@@ -8,6 +9,7 @@ public class FileManager
     private readonly string filePattern;
     public FileSystemNode root = null; 
     public Regex KeywordsRegex { get; set; }
+    public Regex FileRegex { get; set; }
     
     int totalFileCount = 0;
     int progressedFileCount = 0;
@@ -23,7 +25,7 @@ public class FileManager
         KeywordsRegex = new Regex(
             @"(shader[s]|3d|2d|stylized|animation[s]|rpg|medieval|lowpoly|poly|paint|terrain|texture|material|pixel|vfx|sfx|sound[s]|gui|ui|sword|bow|building|house|town|addon|prop|plant|animal|tool|sound|particle)",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
-    
+        FileRegex = new Regex(filePattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 
     public async Task Initialize()
@@ -52,7 +54,7 @@ public class FileManager
     public void FindFilesByName(FileSystemNode node, string targetFileName, List<string> matchingFiles)
     {
         if (node.Name.ToLowerInvariant().Contains(targetFileName.ToLowerInvariant()) &&
-            Path.GetExtension(node.Name) == ".unitypackage")
+            FilePatternMatch(node.FullPath))
         {
             matchingFiles.Add(node.FullPath);
         }
@@ -63,7 +65,11 @@ public class FileManager
         }
     }
 
-
+    bool FilePatternMatch(string filePath)
+    {
+        var fileExt = Path.GetExtension(filePath);
+        return FileRegex.IsMatch(fileExt);
+    }
     public void FindFilesByTag(FileSystemNode node, string targetTags, List<string> resultFiles)
     {
         if (node == null)
@@ -73,7 +79,7 @@ public class FileManager
 
         if (node.Tags != null &&
             targetTagArray.All(targetTag => node.Tags.Contains(targetTag, StringComparer.OrdinalIgnoreCase)) &&
-            Path.GetExtension(node.FullPath).Contains("unitypackage"))
+            FilePatternMatch(node.FullPath)) 
         {
             resultFiles.Add(node.Name);
         }
