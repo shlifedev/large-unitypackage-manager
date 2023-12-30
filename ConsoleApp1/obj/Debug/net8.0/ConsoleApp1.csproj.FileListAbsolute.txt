@@ -12,3 +12,4 @@ C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Debug\net8.0\refint\Conso
 C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.pdb
 C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.genruntimeconfig.cache
 C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Debug\net8.0\ref\ConsoleApp1.dll
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.sourcelink.json

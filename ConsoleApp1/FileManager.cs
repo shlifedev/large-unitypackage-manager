@@ -21,7 +21,7 @@ public class FileManager
         
         Console.WriteLine("Regex 컴파일 중 입니다.");
         KeywordsRegex = new Regex(
-            @"(shader[s]|3d|2d|stylized|animation[s]|rpg|medieval|lowpoly|pixel|vfx|sfx|sound[s]|gui|ui|sword|bow|building|house|town|addon|prop|plant|animal|tool|sound|particle)",
+            @"(shader[s]|3d|2d|stylized|animation[s]|rpg|medieval|lowpoly|poly|paint|terrain|texture|material|pixel|vfx|sfx|sound[s]|gui|ui|sword|bow|building|house|town|addon|prop|plant|animal|tool|sound|particle)",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
     
     }
@@ -44,7 +44,7 @@ public class FileManager
 
             progressedFileCount++;
 
-            Console.WriteLine($"{progressedFileCount}/{totalFileCount}");
+            Console.WriteLine($"{progressedFileCount}");
             return Task.CompletedTask;
         }; 
         root = await TraverseTreeAsync(path, filePattern, modifyFile); 
