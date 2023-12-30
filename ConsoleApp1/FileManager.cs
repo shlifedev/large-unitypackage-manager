@@ -1,21 +1,23 @@
-﻿using System.IO.Compression;
+﻿using System.Collections;
+using System.IO.Compression;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace ConsoleApp1;
 
-public class FileManager
+public class FileManager : IEnumerable<FileSystemNode>
 {
     private readonly string path;
     private readonly string filePattern;
-    public FileSystemNode root = null; 
+    public FileSystemNode root; 
     public Regex KeywordsRegex { get; set; }
     public Regex FileRegex { get; set; }
     
     int totalFileCount = 0;
     int progressedFileCount = 0;
 
-    
+
+ 
     public FileManager(string path, string filePattern)
     {
         this.path = path;
@@ -29,9 +31,12 @@ public class FileManager
         FileRegex = new Regex(filePattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 
-    public async Task Initialize()
-    { 
-        Console.WriteLine("파일 분석중입니다.");
+    public async Task<FileSystemNode> Initialize()
+    {
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("Analyzing File...");
+        Console.ResetColor();
+        
         Func<FileSystemNode, Task> modifyFile = node =>
         {
             var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(node.Name);
@@ -49,14 +54,66 @@ public class FileManager
             return Task.CompletedTask;
         }; 
         root = await TraverseTreeAsync(path, filePattern, modifyFile);
-        PrintFileSystemTree(root, "ㄴ");
-        
-        
-    }
-    public void ExtreactFileFromZipWhenPatternMatched(string filePath, string searchPattern, bool shouldDeleteZip = false)
-    {
 
-        Console.WriteLine($"{filePath} 의 압축을 해제합니다. {searchPattern} 가 적용되고 원본 파일은 삭제{(shouldDeleteZip ? "됩니다." : "되지 않습니다.")}");
+        return root;
+    }
+
+    public void ExtreactFileFromZipWhenPatternMatched(FileSystemNode node, string searchPattern=".*\\.unitypackage|.zip|.7z", bool shouldDeleteZip = false)
+    {
+        ExtreactFileFromZipWhenPatternMatched(node.FullPath, searchPattern, shouldDeleteZip);
+    }
+
+    private bool IsNumberingFile(string filename)
+    {
+        return Regex.IsMatch(filename, @"^\d+\s");
+    }
+    
+    private void RenameFile(string currentFilePath, string newFileName)
+    {
+        string directory = Path.GetDirectoryName(currentFilePath);
+        string newFilePath = Path.Combine(directory, newFileName);
+    
+        if (File.Exists(currentFilePath))
+        {
+            File.Move(currentFilePath, newFilePath);
+        }
+        else
+        {
+            Console.WriteLine($"The file {currentFilePath} does not exist.");
+        }
+    }
+    
+    private  string RemovePrefixNumbersFromPath(string filePath)
+    {
+        string filename = Path.GetFileName(filePath);
+        string directory = Path.GetDirectoryName(filePath);
+
+        string modifiedFilename = Regex.Replace(filename, @"^\d+\s", "");
+
+        return Path.Combine(directory, modifiedFilename);
+    }
+    /// <summary>
+    /// 0820 Snaps Prototype  School 1.1 같은 파일 Snaps Prototype  School 1.1 으로 변환됩니다.
+    /// </summary>
+    /// <param name="node"></param>
+    public void FixFileName(FileSystemNode node)
+    {
+        if (IsNumberingFile(node.Name))
+        {
+            RenameFile(node.FullPath, RemovePrefixNumbersFromPath(node.FullPath));  
+        } 
+    }
+    
+    /// <summary>
+    /// 압축 파일에 특정 확장자가 존재하는 경우에만 그 확장자에 대해서 압축을 해제합니다.
+    /// </summary> 
+    public void ExtreactFileFromZipWhenPatternMatched(string filePath, string searchPattern=".*\\.unitypackage|.zip|.7z", bool shouldDeleteZip = false)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write($"{filePath}");
+        Console.ResetColor(); 
+        Console.WriteLine($"의 압축을 해제합니다. {searchPattern} 가 적용되고 원본 파일은 삭제{(shouldDeleteZip ? "됩니다." : "되지 않습니다.")}");
+        Console.ResetColor(); 
         Regex regex = new Regex(@"\.(zip|7z|tar)$");
         if (!regex.IsMatch(filePath))
         {
@@ -78,14 +135,15 @@ public class FileManager
                     entry.ExtractToFile(Path.Combine(extractPath, newFileName), overwrite: true);
                 }
             }
-
-            if (shouldDeleteZip)
-            {
-                File.Delete(filePath);
-            }
+ 
+        }
+        
+        if (shouldDeleteZip)
+        {
+            File.Delete(filePath);
         }
     }
-    void PrintFileSystemTree(FileSystemNode node, string indent)
+   public void PrintFileSystemTree(FileSystemNode node, string indent)
     {
         var nodeType = node.NodeType == NodeType.Directory ? "<D>" : "<F>";
         Console.WriteLine($"{indent}{node.Name} {nodeType}");
@@ -176,5 +234,26 @@ public class FileManager
         }
 
         return node;
+    }
+
+
+    public IEnumerator<FileSystemNode> GetEnumerator()
+    {
+        yield return root;
+    
+        // Then return all children
+        foreach (var child in root.Children)
+        {
+            // Use recursion to get all descendants of each child
+            foreach (var descendant in child.Children)
+            {
+                yield return descendant;
+            }
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }

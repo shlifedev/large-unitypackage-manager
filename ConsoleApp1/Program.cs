@@ -6,63 +6,148 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ConsoleApp1;
+using Microsoft.VisualBasic.CompilerServices;
 
 class Program
-{  
+{
+    private static FileManager initialized;
     static async Task Main(string[] args)
     {
+        string path = null;
+        string regexPattern = null;
+        bool isReady = false;
+        for (int i = 0; i < args.Length; ++i) 
+        {
+            switch (args[i]) 
+            {
+                case "-p":
+                    if (i + 1 < args.Length) path = args[++i];
+                    break;
+                
+                case "-r":
+                    if (i + 1 < args.Length) regexPattern = args[++i];
+                    break; 
+            }
+        }
 
 
-        var fm = new FileManager(@"C:\Users\shlif\Desktop\Telegram\Down", ".*\\.unitypackage|zip|7z"); 
-        await fm.Initialize();
 
+        if (path != null && regexPattern != null)
+        {
+            var fm = new FileManager(@"C:\Users\shlif\Desktop\Telegram\Down\Test", ".*\\.unitypackage|zip|7z"); 
+            await fm.Initialize();
+
+            foreach (var a in fm)
+            {
+                Console.WriteLine(a.Name);
+            }
+            foreach (var a in fm)
+            {
+                Console.WriteLine(a.Name);
+            }
+            foreach (var a in fm)
+            {
+                Console.WriteLine(a.Name);
+            }
+            foreach (var a in fm)
+            {
+                Console.WriteLine(a.Name);
+            } 
+            foreach (var a in fm)
+            {
+                Console.WriteLine(a.Name);
+            } 
+            UpdateUserInput(fm);
+        }
+        else
+        {
+            var fm = new FileManager(@"C:\Users\shlif\Desktop\Telegram\Down\Test", ".*\\.unitypackage|.zip|.7z"); 
+            await fm.Initialize();
+            foreach (var node in fm)
+            {
+                Console.WriteLine(node.FullPath);
+                fm.FixFileName(node);
+            }
+            UpdateUserInput(fm);
+        }
+ 
   
-        UserInput(fm);
 
     }
 
-    static void UserInput(FileManager fm)
+    static void UpdateUserInput(FileManager fm)
     {
         while (true)
         {
-            Console.WriteLine("입력 옵션을 선택해 주십시오: 태그 검색 (1), 파일 이름 검색 (2)");
-            var inputOption = Console.ReadLine();
-
-            if (inputOption == "1")
+            try
             {
-                Console.WriteLine("검색하려는 태그를 입력하세요:");
-                var tag = Console.ReadLine();
-                List<string> taggedFiles = new List<string>();
+                Console.WriteLine("입력 옵션을 선택해 주십시오:" +
+                                  "\n- 모든 파일 출력 (list) " +
+                                  "\n- 태그 검색 (tag), " +
+                                  "\n- 파일 이름 검색 (name) " +
+                                  "\n- .zip 파일 압축해제 (unzip) " +
+                                  "\n- .zip 파일 압축해제후 원본삭제 (unzip-allow-delete)");
+                var inputOption = Console.ReadLine();
 
-                fm.FindFilesByTag(fm.root, tag, taggedFiles);
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("Found files:");
-                Console.ResetColor();
-                foreach (var file in taggedFiles)
+
+                if (inputOption == "list")
                 {
-                    Console.WriteLine(file);
+
+                    fm.PrintFileSystemTree(fm.root, "ㄴ");
+                }
+                else if (inputOption == "unzip" || inputOption =="unzip-allow-delete")
+                {
+                    foreach (var node in fm)
+                    {
+                        if (node.NodeType == NodeType.File)
+                        {
+                            fm.ExtreactFileFromZipWhenPatternMatched(node, shouldDeleteZip: (inputOption != "unzip") );
+                        }
+                    }
+                }
+                else if (inputOption == "tag")
+                {
+                    Console.WriteLine("검색하려는 태그를 입력하세요:");
+                    var tag = Console.ReadLine();
+                    List<string> taggedFiles = new List<string>();
+
+                    fm.FindFilesByTag(fm.root, tag, taggedFiles);
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Found files:");
+                    Console.ResetColor();
+                    foreach (var file in taggedFiles)
+                    {
+                        Console.WriteLine(file);
+                    }
+                }
+                else if (inputOption == "name")
+                {
+                    Console.WriteLine("검색하려는 파일명을 입력하세요:");
+                    var fileName = Console.ReadLine();
+                    List<string> matchingFiles = new List<string>();
+
+                    fm.FindFilesByName(fm.root, fileName, matchingFiles);
+                    Console.ForegroundColor = ConsoleColor.Blue;
+
+
+                    Console.WriteLine("Found files:");
+                    Console.ResetColor();
+                    foreach (var file in matchingFiles)
+                    {
+                        Console.WriteLine(file);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("선택 사항이 잘못되었습니다.");
                 }
             }
-            else if (inputOption == "2")
+            catch(Exception e)
             {
-                Console.WriteLine("검색하려는 파일명을 입력하세요:");
-                var fileName = Console.ReadLine();
-                List<string> matchingFiles = new List<string>();
-
-                fm.FindFilesByName(fm.root, fileName, matchingFiles);
-                Console.ForegroundColor = ConsoleColor.Blue;
-
-
-                Console.WriteLine("Found files:");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("작업중 오류 발생 => " + e.Message);
                 Console.ResetColor();
-                foreach (var file in matchingFiles)
-                {
-                    Console.WriteLine(file);
-                }
-            }
-            else
-            {
-                Console.WriteLine("선택 사항이 잘못되었습니다.");
+                
             }
         }
     }
