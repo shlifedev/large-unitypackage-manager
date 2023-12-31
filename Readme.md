@@ -10,10 +10,13 @@
 - `.unitypackage` 확장자를 가진 파일에 대해서 오토 Tagging, 이름 기반 검색, `Regex` 기반 검색을 수행합니다.
 > 예를 들어 `RPG Medieval 3D Animation` 파일에 대해서는 3D, Animation이 태깅됩니다. 태깅 기반 검색시 `3D` 에셋을 찾는다면 `Animation`이 포함되어있기에 검색에서 제외됩니다.
 - `.zip`파일안에 있는 `.unitypackage` 확장자를 올바르게 압축 해제하는 기능이 포함되어 있습니다.
-- 모든 작업은 스레드 최적화 되어있어 매우 빠릅니다.
+- **모든 작업은 스레드 최적화 되어있어 매우 빠릅니다.**
+
+
 
 ## How to use
 - `.exe -p [PATH] -r "[".*\\.unitypackage|zip|7z]"`
+  ** Warning : if you want fastest tree search, re-write simple regex ex)"[".*\\.unitypackage] **
 - `.exe -p [PATH, ex) c:\unityassets] -r "[".*\\.unitypackage]"`
 ## When Executed, You can input command this
 - `list` - Show All Files
