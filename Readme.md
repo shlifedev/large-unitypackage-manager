@@ -12,6 +12,11 @@
 - `.zip`파일안에 있는 `.unitypackage` 확장자를 올바르게 압축 해제하는 기능이 포함되어 있습니다.
 - 모든 작업은 스레드 최적화 되어있어 매우 빠릅니다.
 
+## How to use
+- `.exe -p [PATH] -r "[".*\\.unitypackage|zip|7z]"`
+- `.exe -p [PATH] -r "[".*\\.unitypackage]"`
+
+
 ## 1만개가 넘는 파일에 대해서 탐색을 한 이후, 태깅, 이름 검색 실행 결과입니다.
 ![image](https://github.com/shlifedev/unity-large-assets-manager/assets/49047211/19708959-9d46-4596-85a8-e88591e7edf2)
 ![image](https://github.com/shlifedev/unity-large-assets-manager/assets/49047211/d081c904-0ab8-4c69-8f06-2b6e3148e084)
