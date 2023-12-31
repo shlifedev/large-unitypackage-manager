@@ -29,3 +29,9 @@
 ## 1만개가 넘는 파일에 대해서 탐색을 한 이후, 태깅, 이름 검색 실행 결과입니다.
 ![image](https://github.com/shlifedev/unity-large-assets-manager/assets/49047211/19708959-9d46-4596-85a8-e88591e7edf2)
 ![image](https://github.com/shlifedev/unity-large-assets-manager/assets/49047211/d081c904-0ab8-4c69-8f06-2b6e3148e084)
+
+
+### 곧 지원할 예정
+- 파일 이름을 기반으로 유니티 에셋 스토어에서 파일을 찾고 메타데이터를 생성합니다.
+- 좀 더 빠른 파일 트리 탐색 알고리즘을 만듭니다. 혹은 --cache 옵션을 추가합니다.
+
