@@ -15,8 +15,13 @@
 ## How to use
 - `.exe -p [PATH] -r "[".*\\.unitypackage|zip|7z]"`
 - `.exe -p [PATH, ex) c:\unityassets] -r "[".*\\.unitypackage]"`
-
-
+## When Executed, You can input command this
+- `list` - Show All Files
+- `tag` - Search by Tag
+> ex ) `tag` 2D,RPG` | `tag` `3D`
+- `name` - Search by Name
+- `unzip` - Extract All Files
+- `unzip-allow-delete` - Extract All Files And Delete .zip File
 ## 1만개가 넘는 파일에 대해서 탐색을 한 이후, 태깅, 이름 검색 실행 결과입니다.
 ![image](https://github.com/shlifedev/unity-large-assets-manager/assets/49047211/19708959-9d46-4596-85a8-e88591e7edf2)
 ![image](https://github.com/shlifedev/unity-large-assets-manager/assets/49047211/d081c904-0ab8-4c69-8f06-2b6e3148e084)
