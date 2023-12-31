@@ -35,28 +35,7 @@ class Program
         if (path != null && regexPattern != null)
         {
             var fm = new FileManager(@"C:\Users\shlif\Desktop\Telegram\Down\Test", ".*\\.unitypackage|zip|7z"); 
-            await fm.Initialize();
-
-            foreach (var a in fm)
-            {
-                Console.WriteLine(a.Name);
-            }
-            foreach (var a in fm)
-            {
-                Console.WriteLine(a.Name);
-            }
-            foreach (var a in fm)
-            {
-                Console.WriteLine(a.Name);
-            }
-            foreach (var a in fm)
-            {
-                Console.WriteLine(a.Name);
-            } 
-            foreach (var a in fm)
-            {
-                Console.WriteLine(a.Name);
-            } 
+            await fm.Initialize(); 
             UpdateUserInput(fm);
         }
         else
