@@ -16,6 +16,7 @@
 
 ## How to use
 - `.exe -p [PATH] -r "[".*\\.unitypackage|zip|7z]"`
+
   ** Warning : if you want fastest tree search, re-write simple regex ex)"[".*\\.unitypackage] **
 - `.exe -p [PATH, ex) c:\unityassets] -r "[".*\\.unitypackage]"`
 ## When Executed, You can input command this
