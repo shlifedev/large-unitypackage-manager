@@ -14,7 +14,7 @@
 
 ## How to use
 - `.exe -p [PATH] -r "[".*\\.unitypackage|zip|7z]"`
-- `.exe -p [PATH] -r "[".*\\.unitypackage]"`
+- `.exe -p [PATH, ex) c:\unityassets] -r "[".*\\.unitypackage]"`
 
 
 ## 1만개가 넘는 파일에 대해서 탐색을 한 이후, 태깅, 이름 검색 실행 결과입니다.
