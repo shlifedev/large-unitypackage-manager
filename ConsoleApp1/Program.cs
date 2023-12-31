@@ -55,6 +55,7 @@ class Program
 
     }
 
+    
     static void UpdateUserInput(FileManager fm)
     {
         while (true)
@@ -71,8 +72,7 @@ class Program
 
 
                 if (inputOption == "list")
-                {
-
+                { 
                     fm.PrintFileSystemTree(fm.root, "ㄴ");
                 }
                 else if (inputOption == "unzip" || inputOption =="unzip-allow-delete")
@@ -88,6 +88,13 @@ class Program
                 else if (inputOption == "tag")
                 {
                     Console.WriteLine("검색하려는 태그를 입력하세요:");
+                    var allTags = fm.GetAllTags(fm.root);
+                    Console.WriteLine("검색 가능한 모든 태그입니다.:");
+                    foreach (var tagged in allTags) 
+                    {
+                        Console.Write(tagged+" | ");
+                    }
+                    
                     var tag = Console.ReadLine();
                     List<string> taggedFiles = new List<string>();
 

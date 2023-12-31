@@ -31,6 +31,18 @@ public class FileManager : IEnumerable<FileSystemNode>
         FileRegex = new Regex(filePattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 
+    public List<string> GetAllTags(FileSystemNode node)
+    {
+        if (node.Tags == null)
+            node.Tags = new List<string>();
+        
+        var tags = new List<string>(node.Tags);
+        foreach (var child in node.Children)
+        {
+            tags.AddRange(GetAllTags(child));
+        }
+        return tags.Distinct().ToList();
+    }
     public async Task<FileSystemNode> Initialize()
     {
         Console.ForegroundColor = ConsoleColor.Cyan;

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LargeFileDPS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e04ac5dd84e9464878dc0dffafa9a213b391cf18")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fd074a486de3f9f8d07c5f912241af8dc8e2dec")]
 [assembly: System.Reflection.AssemblyProductAttribute("LargeFileDPS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LargeFileDPS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
