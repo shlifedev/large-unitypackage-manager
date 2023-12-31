@@ -40,11 +40,12 @@ class Program
         }
         else
         {
-            var fm = new FileManager(@"C:\Users\shlif\Desktop\Telegram\Down\Test", ".*\\.unitypackage|.zip|.7z"); 
+            var fm = new FileManager(@"C:\tdl", ".*\\.unitypackage|.zip|.7z"); 
             await fm.Initialize();
             foreach (var node in fm)
             {
                 Console.WriteLine(node.FullPath);
+                Console.WriteLine(node.Version);
                 fm.FixFileName(node);
             }
             UpdateUserInput(fm);
