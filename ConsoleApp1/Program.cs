@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using ConsoleApp1;
 using Microsoft.VisualBasic.CompilerServices;
 
+
+/*tdl -f C:\tdl\export.json dl -d C:\tdl\output --template "{{ .FileName }}" -l 8 --pool 0 -t 32*/
 class Program
 {
     private static FileManager initialized;
@@ -62,12 +64,12 @@ class Program
         {
             try
             {
-                Console.WriteLine("입력 옵션을 선택해 주십시오:" +
-                                  "\n- 모든 파일 출력 (list) " +
-                                  "\n- 태그 검색 (tag), " +
-                                  "\n- 파일 이름 검색 (name) " +
-                                  "\n- .zip 파일 압축해제 (unzip) " +
-                                  "\n- .zip 파일 압축해제후 원본삭제 (unzip-allow-delete)");
+                Console.WriteLine("Input Command :" +
+                                  "\n- Show All Searched File List (list) " +
+                                  "\n- Search by Tag (tag), " +
+                                  "\n- Search by Name (name) " +
+                                  "\n- Uncompress .zip File  (unzip) " +
+                                  "\n- Uncompress .zip File And Delete Original .zip File (unzip-allow-delete)");
                 var inputOption = Console.ReadLine();
 
 
@@ -87,9 +89,9 @@ class Program
                 }
                 else if (inputOption == "tag")
                 {
-                    Console.WriteLine("검색하려는 태그를 입력하세요:");
+                    Console.WriteLine("Input Search Tag:");
                     var allTags = fm.GetAllTags(fm.root);
-                    Console.WriteLine("검색 가능한 모든 태그입니다.:");
+                    Console.WriteLine("These are all the searchable tags:");
                     foreach (var tagged in allTags) 
                     {
                         Console.Write(tagged+" | ");
@@ -109,7 +111,7 @@ class Program
                 }
                 else if (inputOption == "name")
                 {
-                    Console.WriteLine("검색하려는 파일명을 입력하세요:");
+                    Console.WriteLine("Input Search FileName:");
                     var fileName = Console.ReadLine();
                     List<string> matchingFiles = new List<string>();
 
@@ -126,13 +128,13 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine("선택 사항이 잘못되었습니다.");
+                    Console.WriteLine("Invalid Command.");
                 }
             }
             catch(Exception e)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("작업중 오류 발생 => " + e.Message);
+                Console.WriteLine("Error => " + e.Message);
                 Console.ResetColor();
                 
             }

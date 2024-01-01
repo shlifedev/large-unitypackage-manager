@@ -24,7 +24,7 @@ public class FileManager : IEnumerable<FileSystemNode>
         this.filePattern = filePattern;
         
         
-        Console.WriteLine("Regex 컴파일 중 입니다.");
+        Console.WriteLine("Regex Compiling.. Please Wait.");
         KeywordsRegex = new Regex(
             @"(shader[s]|3d|2d|stylized|animation[s]|rpg|medieval|lowpoly|poly|paint|terrain|texture|material|pixel|vfx|sfx|sound[s]|gui|ui|sword|bow|building|house|town|addon|prop|plant|animal|tool|sound|particle)",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
@@ -124,7 +124,7 @@ public class FileManager : IEnumerable<FileSystemNode>
         Console.ForegroundColor = ConsoleColor.Green;
         Console.Write($"{filePath}");
         Console.ResetColor(); 
-        Console.WriteLine($"의 압축을 해제합니다. {searchPattern} 가 적용되고 원본 파일은 삭제{(shouldDeleteZip ? "됩니다." : "되지 않습니다.")}");
+        Console.WriteLine($"Uncompressing..  {searchPattern} Pattern Applied and Original .zip File Will {(shouldDeleteZip ? "Delete" : "Not Delete.")}");
         Console.ResetColor(); 
         Regex regex = new Regex(@"\.(zip|7z|tar)$");
         if (!regex.IsMatch(filePath))
