@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
  
  
@@ -12,8 +13,7 @@ public class FileSystemNode
     public NodeType NodeType { get; set; }
 
     public string FullPath { get; set; }
-    public List<string> Tags { get; set; }
-
+    public List<string> Tags { get; set; }  
     
     /// <summary>
     /// 정확하지 않을 수 있습니다.

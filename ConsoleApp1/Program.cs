@@ -14,12 +14,11 @@ using Microsoft.VisualBasic.CompilerServices;
 /*tdl -f C:\tdl\export.json dl -d C:\tdl\output --template "{{ .FileName }}" -l 8 --pool 0 -t 32*/
 class Program
 {
-    private static FileManager initialized; 
+    private static FileManager initialized;
+
     static async Task Main(string[] args)
     {
- 
-        
- #if RELEASE
+#if RELEASE
         string path = null;
         string regexPattern = null;
         bool isReady = false;
@@ -40,30 +39,21 @@ class Program
         Console.WriteLine(path);
         Console.WriteLine(regexPattern);
 
-        var fm = new FileManager(path, (string.IsNullOrEmpty(regexPattern) ? ".*\\.unitypackage|.zip|.7z" : regexPattern)); 
+        var fm =
+ new FileManager(path, (string.IsNullOrEmpty(regexPattern) ? ".*\\.unitypackage|.zip|.7z" : regexPattern)); 
         await fm.Initialize(); assetstore.unity.com
         UpdateUserInput(fm);
 #endif
-        
+
 #if DEBUG
 
-            var fm = new FileManager(@"c:\tdl", ".*\\.unitypackage|.zip|.7z"); 
-            await fm.Initialize();
-
-            foreach (var item in fm)
-            {
-                if (item.NodeType == NodeType.File)
-                { 
-                        var result = await AssetStoreUtility.SearchGoogle(item.Name);
-                        Console.Write(result); 
-                }
-            }
-            UpdateUserInput(fm);
+        var fm = new FileManager(@"H:\Tera\Unity Assets", ".*\\.unitypackage|.zip|.7z");
+        await fm.Initialize(); 
+        UpdateUserInput(fm);
 #endif
-
     }
 
-    
+
     static void UpdateUserInput(FileManager fm)
     {
         while (true)
@@ -77,37 +67,35 @@ class Program
                                   "\n- Uncompress .zip File  (unzip) " +
                                   "\n- Uncompress .zip File And Delete Original .zip File (unzip-allow-delete)");
                 var inputOption = Console.ReadLine();
-
-
-                
-                if (inputOption == "list")
-                { 
-                    fm.PrintFileSystemTree(fm.root, "ㄴ");
+ 
+               if (inputOption == "list")
+                {
+                    fm.PrintFileSystemTree(fm.Root, "ㄴ");
                 }
-                else if (inputOption == "unzip" || inputOption =="unzip-allow-delete")
+                else if (inputOption == "unzip" || inputOption == "unzip-allow-delete")
                 {
                     foreach (var node in fm)
                     {
                         if (node.NodeType == NodeType.File)
                         {
-                            fm.ExtreactFileFromZipWhenPatternMatched(node, shouldDeleteZip: (inputOption != "unzip") );
+                            fm.ExtreactFileFromZipWhenPatternMatched(node, shouldDeleteZip: (inputOption != "unzip"));
                         }
                     }
                 }
                 else if (inputOption == "tag")
                 {
                     Console.WriteLine("Input Search Tag:");
-                    var allTags = fm.GetAllTags(fm.root);
+                    var allTags = fm.GetAllTags(fm.Root);
                     Console.WriteLine("These are all the searchable tags:");
-                    foreach (var tagged in allTags) 
+                    foreach (var tagged in allTags)
                     {
-                        Console.Write(tagged+" | ");
+                        Console.Write(tagged + " | ");
                     }
-                    
+
                     var tag = Console.ReadLine();
                     List<string> taggedFiles = new List<string>();
 
-                    fm.FindFilesByTag(fm.root, tag, taggedFiles);
+                    fm.FindFilesByTag(fm.Root, tag, taggedFiles);
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Found files:");
                     Console.ResetColor();
@@ -122,7 +110,7 @@ class Program
                     var fileName = Console.ReadLine();
                     List<string> matchingFiles = new List<string>();
 
-                    fm.FindFilesByName(fm.root, fileName, matchingFiles);
+                    fm.FindFilesByName(fm.Root, fileName, matchingFiles);
                     Console.ForegroundColor = ConsoleColor.Blue;
 
 
@@ -138,14 +126,13 @@ class Program
                     Console.WriteLine("Invalid Command.");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error => " + e.Message);
+                Console.WriteLine("Error => " + e.StackTrace);
                 Console.ResetColor();
-                
             }
         }
     }
- 
 }
