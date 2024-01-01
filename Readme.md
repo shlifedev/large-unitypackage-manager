@@ -3,9 +3,10 @@
 This program is not necessary for everyone. It is a useful application for developers who want to archive and manage their own `unitypackage` files
 
 
->  Imagine you have 100,000 files with a .unitypackage hidden inside a random .unityapckage or .zip, and the information in those files is not categorized as to whether they are 3D, Animation, 2D, etc.
+>  Imagine you have 100,000 files with a .unitypackage or your .unityapckage in .zip or .7z .. etc , You can only infer from the filename whether it's 2D, animated, stylized, etc (This is because there is no metadata, so you can only infer from the filename whether it is a 2D, animated, or stylized file.)
 In this case, we would have to look at the file names directly and make inferences. For example, if it's called `RPG Medieval 3D Animation`, we don't know if it's called `RPG Medieval 3D Assets` or `Animation` until we recognize the word `Animation`.
  
+**This tool uses REGEX to infer the version of a file, tags, and categorize it**
 
 
 ## This asset manager therefore performs the following roles
