@@ -3,18 +3,22 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ConsoleApp1;
+using System.Text.Json;
 using Microsoft.VisualBasic.CompilerServices;
 
 
 /*tdl -f C:\tdl\export.json dl -d C:\tdl\output --template "{{ .FileName }}" -l 8 --pool 0 -t 32*/
 class Program
 {
-    private static FileManager initialized;
+    private static FileManager initialized; 
     static async Task Main(string[] args)
     {
+ 
+        
  #if RELEASE
         string path = null;
         string regexPattern = null;
@@ -37,14 +41,23 @@ class Program
         Console.WriteLine(regexPattern);
 
         var fm = new FileManager(path, (string.IsNullOrEmpty(regexPattern) ? ".*\\.unitypackage|.zip|.7z" : regexPattern)); 
-        await fm.Initialize(); 
+        await fm.Initialize(); assetstore.unity.com
         UpdateUserInput(fm);
 #endif
         
 #if DEBUG
 
-            var fm = new FileManager(@"H:\Tera", ".*\\.unitypackage|.zip|.7z"); 
-            await fm.Initialize(); 
+            var fm = new FileManager(@"c:\tdl", ".*\\.unitypackage|.zip|.7z"); 
+            await fm.Initialize();
+
+            foreach (var item in fm)
+            {
+                if (item.NodeType == NodeType.File)
+                { 
+                        var result = await AssetStoreUtility.SearchGoogle(item.Name);
+                        Console.Write(result); 
+                }
+            }
             UpdateUserInput(fm);
 #endif
 
@@ -66,6 +79,7 @@ class Program
                 var inputOption = Console.ReadLine();
 
 
+                
                 if (inputOption == "list")
                 { 
                     fm.PrintFileSystemTree(fm.root, "ㄴ");
