@@ -32,21 +32,19 @@ class Program
                     break; 
             }
         }
-        var fm = new FileManager(path, (string.IsNullOrEmpty(regexPattern) ? "\".*\\\\.unitypackage" : regexPattern)); 
+
+        Console.WriteLine(path);
+        Console.WriteLine(regexPattern);
+
+        var fm = new FileManager(path, (string.IsNullOrEmpty(regexPattern) ? ".*\\.unitypackage|.zip|.7z" : regexPattern)); 
         await fm.Initialize(); 
         UpdateUserInput(fm);
 #endif
         
 #if DEBUG
 
-            var fm = new FileManager(@"C:\tdl", ".*\\.unitypackage|.zip|.7z"); 
-            await fm.Initialize();
-            foreach (var node in fm)
-            {
-                Console.WriteLine(node.FullPath);
-                Console.WriteLine(node.Version);
-                fm.FixFileName(node);
-            }
+            var fm = new FileManager(@"H:\Tera", ".*\\.unitypackage|.zip|.7z"); 
+            await fm.Initialize(); 
             UpdateUserInput(fm);
 #endif
 
