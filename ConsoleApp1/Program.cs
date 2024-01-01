@@ -15,6 +15,7 @@ class Program
     private static FileManager initialized;
     static async Task Main(string[] args)
     {
+ #if RELEASE
         string path = null;
         string regexPattern = null;
         bool isReady = false;
@@ -31,17 +32,13 @@ class Program
                     break; 
             }
         }
+        var fm = new FileManager(path, (string.IsNullOrEmpty(regexPattern) ? "\".*\\\\.unitypackage" : regexPattern)); 
+        await fm.Initialize(); 
+        UpdateUserInput(fm);
+#endif
+        
+#if DEBUG
 
-
-
-        if (path != null && regexPattern != null)
-        {
-            var fm = new FileManager(@"C:\Users\shlif\Desktop\Telegram\Down\Test", ".*\\.unitypackage|zip|7z"); 
-            await fm.Initialize(); 
-            UpdateUserInput(fm);
-        }
-        else
-        {
             var fm = new FileManager(@"C:\tdl", ".*\\.unitypackage|.zip|.7z"); 
             await fm.Initialize();
             foreach (var node in fm)
@@ -51,9 +48,7 @@ class Program
                 fm.FixFileName(node);
             }
             UpdateUserInput(fm);
-        }
- 
-  
+#endif
 
     }
 

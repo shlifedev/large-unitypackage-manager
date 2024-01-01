@@ -1,0 +1,15 @@
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\bin\Release\net8.0\LargeFileDPS.exe
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\bin\Release\net8.0\LargeFileDPS.deps.json
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\bin\Release\net8.0\LargeFileDPS.runtimeconfig.json
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\bin\Release\net8.0\LargeFileDPS.dll
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\bin\Release\net8.0\LargeFileDPS.pdb
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\ConsoleApp1.AssemblyInfo.cs
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\ConsoleApp1.sourcelink.json
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\LargeFileDPS.dll
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\refint\LargeFileDPS.dll
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\LargeFileDPS.pdb
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\ConsoleApp1.genruntimeconfig.cache
+C:\Users\shlif\RiderProjects\Solution2\ConsoleApp1\obj\Release\net8.0\ref\LargeFileDPS.dll
