@@ -18,8 +18,7 @@ In this case, we would have to look at the file names directly and make inferenc
 
 
 ## How to use
-
-
+Here's an example of a file tree
 ```
 c:\
  ㄴ your_assets
