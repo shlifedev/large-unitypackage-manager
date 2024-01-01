@@ -19,7 +19,7 @@ In this case, we would have to look at the file names directly and make inferenc
 
 ## How to use
 
-- `.exe -p [PATH] 
+- `.exe -p [PATH]`
 - `.exe -p [PATH] -r ".*\\.unitypackage|.zip|.7z"`
 
   **Warning : if you want fastest tree search, re-write simple regex ex)"[".*\\.unitypackage]**
