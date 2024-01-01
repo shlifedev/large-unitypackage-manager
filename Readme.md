@@ -18,10 +18,12 @@ In this case, we would have to look at the file names directly and make inferenc
 
 
 ## How to use
-- `.exe -p [PATH] -r "[".*\\.unitypackage|zip|7z]"`
+
+- `.exe -p [PATH] 
+- `.exe -p [PATH] -r ".*\\.unitypackage|.zip|.7z"`
 
   **Warning : if you want fastest tree search, re-write simple regex ex)"[".*\\.unitypackage]**
-- `.exe -p [PATH, ex) c:\unityassets] -r "[".*\\.unitypackage]"`
+- `.exe -p [PATH, ex) c:\unityassets] -r ".*\\.unitypackage|.zip|.7z"`
 ## When Executed, You can input command this
 
 - `list` - Show All Files
