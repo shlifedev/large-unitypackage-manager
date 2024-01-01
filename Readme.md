@@ -52,6 +52,5 @@ c:\
 
 
 ### I Will Develop 
-- 파일 이름을 기반으로 유니티 에셋 스토어에서 파일을 찾고 메타데이터를 생성합니다.
-- 좀 더 빠른 파일 트리 탐색 알고리즘을 만듭니다. 혹은 --cache 옵션을 추가합니다.
-
+- Find files in the Unity Asset Store based on their filename and generate metadata.
+- Create a faster file tree traversal algorithm, or add the --cache option.
