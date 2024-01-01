@@ -19,6 +19,18 @@ In this case, we would have to look at the file names directly and make inferenc
 
 ## How to use
 
+
+```c:\
+ ㄴ your_assets
+   ㄴ A
+    ㄴ included +1000 .unitypackages
+   ㄴ B
+    ㄴ include +100 unity apckages and other directories
+     ㄴ C...
+```
+     
+`root folder is c:\your_assets`
+
 - `.exe -p [PATH]`
 - `.exe -p [PATH] -r ".*\\.unitypackage|.zip|.7z"`
 
