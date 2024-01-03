@@ -8,7 +8,7 @@ This program is not necessary for everyone. It is a useful application for devel
 In this case, we would have to look at the file names directly and make inferences. For example, if it's called `RPG Medieval 3D Animation`, we don't know if it's called `RPG Medieval 3D Assets` or `Animation` until we recognize the word `Animation`.
  
 **This tool uses REGEX to infer the version of a file, tags, and categorize it**
-
+-----------------
 ### - Sync Dir Manager (Optional)
 
  This program streams folders on your local disk to a network drive. A maximum of `n threads` can be specified, and the number of concurrents is allowed via `SemaphoreSlim` in C#.
@@ -16,7 +16,7 @@ I use it to upload only newly updated files, as it's a pain in the ass to manual
 
 **This saves network traffic and eliminates the need to keep Windows File Explorer or FileZila open**
 
-
+-------------------------------------
 ## This asset manager therefore performs the following roles
 
 - Performs auto-tagging, name-based search, and `Regex`-based search for files with the `.unitypackage` extension.
@@ -45,7 +45,7 @@ c:\
 - 
   **Warning : if you want fastest tree search, re-write simple regex ex)"[".*\.unitypackage]**
 - `.exe -p [PATH, ex) c:\unityassets] -r ".*\.unitypackage|.zip|.7z"`
-
+--------------------------
 ## How to use - Sync Dir Manager
  soon.
  
