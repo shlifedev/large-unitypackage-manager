@@ -8,6 +8,7 @@ This program is not necessary for everyone. It is a useful application for devel
 In this case, we would have to look at the file names directly and make inferences. For example, if it's called `RPG Medieval 3D Animation`, we don't know if it's called `RPG Medieval 3D Assets` or `Animation` until we recognize the word `Animation`.
  
 **This tool uses REGEX to infer the version of a file, tags, and categorize it**
+
 -----------------
 ### - Sync Dir Manager (Optional)
 
