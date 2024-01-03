@@ -1,5 +1,6 @@
-
 # What is this?
+
+### - Large File Manager
 This program is not necessary for everyone. It is a useful application for developers who want to archive and manage their own `unitypackage` files
 
 
@@ -8,7 +9,15 @@ In this case, we would have to look at the file names directly and make inferenc
  
 **This tool uses REGEX to infer the version of a file, tags, and categorize it**
 
+-----------------
+### - Sync Dir Manager (Optional)
 
+ This program streams folders on your local disk to a network drive. A maximum of `n threads` can be specified, and the number of concurrents is allowed via `SemaphoreSlim` in C#.
+I use it to upload only newly updated files, as it's a pain in the ass to manually backup my numerous assets/files to `dropbox`, `web-dav (nas)`, etc.
+
+**This saves network traffic and eliminates the need to keep Windows File Explorer or FileZila open**
+
+-------------------------------------
 ## This asset manager therefore performs the following roles
 
 - Performs auto-tagging, name-based search, and `Regex`-based search for files with the `.unitypackage` extension.
@@ -18,7 +27,7 @@ In this case, we would have to look at the file names directly and make inferenc
 
 
 
-## How to use
+## How to use - Large File Manager
 Here's an example of a file tree
 ```
 c:\
@@ -34,9 +43,13 @@ c:\
 
 - `.exe -p [PATH]`
 - `.exe -p [PATH] -r ".*\.unitypackage|.zip|.7z"`
-
+- 
   **Warning : if you want fastest tree search, re-write simple regex ex)"[".*\.unitypackage]**
 - `.exe -p [PATH, ex) c:\unityassets] -r ".*\.unitypackage|.zip|.7z"`
+--------------------------
+## How to use - Sync Dir Manager
+ soon.
+ 
 ## When Executed, You can input command this
 
 - `list` - Show All Files
