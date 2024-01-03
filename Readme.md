@@ -42,13 +42,13 @@ c:\
 
 - `.exe -p [PATH]`
 - `.exe -p [PATH] -r ".*\.unitypackage|.zip|.7z"`
-
+- 
+  **Warning : if you want fastest tree search, re-write simple regex ex)"[".*\.unitypackage]**
+- `.exe -p [PATH, ex) c:\unityassets] -r ".*\.unitypackage|.zip|.7z"`
 
 ## How to use - Sync Dir Manager
  soon.
-
-  **Warning : if you want fastest tree search, re-write simple regex ex)"[".*\.unitypackage]**
-- `.exe -p [PATH, ex) c:\unityassets] -r ".*\.unitypackage|.zip|.7z"`
+ 
 ## When Executed, You can input command this
 
 - `list` - Show All Files
