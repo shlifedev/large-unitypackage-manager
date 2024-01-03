@@ -1,5 +1,6 @@
-
 # What is this?
+
+### - Large File Manager
 This program is not necessary for everyone. It is a useful application for developers who want to archive and manage their own `unitypackage` files
 
 
@@ -7,6 +8,13 @@ This program is not necessary for everyone. It is a useful application for devel
 In this case, we would have to look at the file names directly and make inferences. For example, if it's called `RPG Medieval 3D Animation`, we don't know if it's called `RPG Medieval 3D Assets` or `Animation` until we recognize the word `Animation`.
  
 **This tool uses REGEX to infer the version of a file, tags, and categorize it**
+
+### - Sync Dir Manager (Optional)
+
+ This program streams folders on your local disk to a network drive. A maximum of `n threads` can be specified, and the number of concurrents is allowed via `SemaphoreSlim` in C#.
+I use it to upload only newly updated files, as it's a pain in the ass to manually backup my numerous assets/files to `dropbox`, `web-dav (nas)`, etc.
+
+**This saves network traffic and eliminates the need to keep Windows File Explorer or FileZila open**
 
 
 ## This asset manager therefore performs the following roles
