@@ -43,8 +43,8 @@ c:\
 - `tag` - Search by Tag
 > ex ) `tag` 2D,RPG` | `tag` `3D`
 - `name` - Search by Name
-- `unzip` - Extract All Files
-- `unzip-allow-delete` - Extract All Files And Delete .zip File
+- `unzip` - Extract All Files (Detects only if there is a .unitypackage in the zip file.)
+- `unzip-allow-delete` - Extract All Files And Delete .zip File (Detects only if there is a .unitypackage in the zip file.)
  
 ## This is the result of running a tagging and name search after browsing over 10,000 files.
 ![image](https://github.com/shlifedev/unity-large-assets-manager/assets/49047211/19708959-9d46-4596-85a8-e88591e7edf2)
