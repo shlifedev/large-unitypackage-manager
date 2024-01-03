@@ -1,0 +1,15 @@
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\bin\Debug\net8.0\LargeFileDPS.exe
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\bin\Debug\net8.0\LargeFileDPS.deps.json
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\bin\Debug\net8.0\LargeFileDPS.runtimeconfig.json
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\bin\Debug\net8.0\LargeFileDPS.dll
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\bin\Debug\net8.0\LargeFileDPS.pdb
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\LargeFileManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\LargeFileManager.AssemblyInfoInputs.cache
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\LargeFileManager.AssemblyInfo.cs
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\LargeFileManager.csproj.CoreCompileInputs.cache
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\LargeFileManager.sourcelink.json
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\LargeFileDPS.dll
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\refint\LargeFileDPS.dll
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\LargeFileDPS.pdb
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\LargeFileManager.genruntimeconfig.cache
+C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\obj\Debug\net8.0\ref\LargeFileDPS.dll

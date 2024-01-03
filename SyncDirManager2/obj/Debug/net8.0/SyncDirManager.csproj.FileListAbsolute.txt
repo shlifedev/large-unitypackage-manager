@@ -1,0 +1,15 @@
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\bin\Debug\net8.0\SyncDirManager.exe
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\bin\Debug\net8.0\SyncDirManager.deps.json
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\bin\Debug\net8.0\SyncDirManager.runtimeconfig.json
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\bin\Debug\net8.0\SyncDirManager.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\bin\Debug\net8.0\SyncDirManager.pdb
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\SyncDirManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\SyncDirManager.AssemblyInfoInputs.cache
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\SyncDirManager.AssemblyInfo.cs
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\SyncDirManager.csproj.CoreCompileInputs.cache
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\SyncDirManager.sourcelink.json
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\SyncDirManager.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\refint\SyncDirManager.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\SyncDirManager.pdb
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\SyncDirManager.genruntimeconfig.cache
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager\obj\Debug\net8.0\ref\SyncDirManager.dll

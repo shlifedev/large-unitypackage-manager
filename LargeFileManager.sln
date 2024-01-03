@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargeFileManager", "LargeFileManager\LargeFileManager.csproj", "{959B6C06-FFEB-4A95-B38E-5B7AC8E1C6DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncDir", "SyncDir\SyncDir.csproj", "{57A90645-FE9B-4382-B7A6-042925135758}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncDirManager2", "SyncDirManager2\SyncDirManager2.csproj", "{57A90645-FE9B-4382-B7A6-042925135758}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
