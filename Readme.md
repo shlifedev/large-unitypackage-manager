@@ -1,5 +1,3 @@
-* This project is not related to UPM at all.
-
 # What is this?
 
 ### - Large File Manager
