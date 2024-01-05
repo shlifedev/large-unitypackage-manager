@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Text;
 
 namespace SyncDir;
 
@@ -119,6 +120,37 @@ public static class IO
         Console.WriteLine($"{sourceFile} 을(를) {destinationFile} 으로 복사(업로드) 완료"); 
     }
 
+    public static async Task ConvertAllFilesEncoding(string targetDirectory, string extension, Encoding sourceEncoding, Encoding targetEncoding)
+    {
+        // .html 확장자를 가진 모든 파일을 찾습니다.
+        var htmlFiles = Directory.EnumerateFiles(targetDirectory, $"*.{extension}", SearchOption.AllDirectories);
+        // 이미 utf-16-le 변환된 파일이 있는지 확인\
+        foreach (var file in htmlFiles)
+        { 
+            // 새 파일 경로 생성
+            var newFilePath = Path.Combine(Path.GetDirectoryName(file), Path.GetFileNameWithoutExtension(file) + "-utf16" + Path.GetExtension(file));
+            if (File.Exists(newFilePath))
+            {
+                continue;  // 이미 존재하면 건너뛰어요
+            }
+            else
+            {
+                // 모든 텍스트를 읽습니다.
+                var fileContent = await File.ReadAllTextAsync(file, sourceEncoding);
+
+            
+           
+
+                // utf-16-le 인코딩으로 새 파일을 씁니다.
+                await File.WriteAllTextAsync(newFilePath, fileContent, targetEncoding);
+                Console.WriteLine(newFilePath +" 인코딩 변경 완료");
+
+            }
+        }  
+    }
+
+
+    
     public async static Task DeleteTempFilesAsync(string directoryPath)
     {
         Console.WriteLine($"Run DeleteTempFilesAsync {directoryPath}");

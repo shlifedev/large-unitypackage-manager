@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SyncDirManager
-build_property.ProjectDir = C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\
+build_property.ProjectDir = c:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

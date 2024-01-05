@@ -82,12 +82,13 @@ public class LocalDiskToNetworkDiskSync : IDirectorySync
             {
                 var relativePath = fileA.Replace(localPath, "");
                 var targetPath = Path.Combine(remotePath, relativePath.TrimStart(Path.DirectorySeparatorChar));
-
                 // 파일이 없거나, 파일 사이즈가 다르면 로컬에 있는걸 리모트에 올리도록 함.
-                remoteFileMap.TryGetValue(relativePath, out var findedRemotePath); 
+                remoteFileMap.TryGetValue(relativePath, out var findedRemotePath);
+     
                 if (!remoteFileHashMap.Contains(relativePath) ||
                     (findedRemotePath != null && findedRemotePath.Length != new FileInfo(fileA).Length))
-                { 
+                {
+               
                     var targetDirectory = Path.GetDirectoryName(targetPath);
                     if (!Directory.Exists(targetDirectory)) 
                         Directory.CreateDirectory(targetDirectory); 

@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace SyncDir;
@@ -32,6 +33,8 @@ public static class Utils
         return !string.IsNullOrEmpty(path) && Directory.Exists(path);
     }
 
+ 
+    
  
     /// <summary>
     /// 중복되는 파일을 삭제, (수정시간, 파일 사이즈로 유추함.)

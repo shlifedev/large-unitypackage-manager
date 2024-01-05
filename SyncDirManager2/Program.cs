@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Text;
 using SyncDir;
 
 class Program
@@ -56,11 +57,14 @@ class Program
            
             string pathA = @"F:\Sync"; // 경로 A 
             string pathB = @"Z:\home\Sync"; // 경로 B  
+            
             var temp = new LocalDiskToNetworkDiskSync(pathA, pathB, 4);
             await temp.SyncAsync();
             
             Console.WriteLine("Program End, delete temporary");
             await IO.DeleteTempFilesAsync(pathB);
+            // await IO.ConvertAllFilesEncoding(pathB, "html", Encoding.UTF8, Encoding.Unicode);
+            //
         }
 #endif
     }
