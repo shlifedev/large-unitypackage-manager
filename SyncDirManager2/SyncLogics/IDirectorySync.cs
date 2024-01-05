@@ -2,5 +2,5 @@
 
 public interface IDirectorySync
 {
-    Task SyncAsync(string source, string dest);
+    Task SyncAsync();
 }

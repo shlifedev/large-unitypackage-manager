@@ -1,0 +1,15 @@
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Release\net8.0\SyncDirManager2.exe
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Release\net8.0\SyncDirManager2.deps.json
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Release\net8.0\SyncDirManager2.runtimeconfig.json
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Release\net8.0\SyncDirManager2.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Release\net8.0\SyncDirManager2.pdb
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\SyncDirManager2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\SyncDirManager2.AssemblyInfoInputs.cache
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\SyncDirManager2.AssemblyInfo.cs
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\SyncDirManager2.csproj.CoreCompileInputs.cache
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\SyncDirManager2.sourcelink.json
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\SyncDirManager2.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\refint\SyncDirManager2.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\SyncDirManager2.pdb
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\SyncDirManager2.genruntimeconfig.cache
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Release\net8.0\ref\SyncDirManager2.dll

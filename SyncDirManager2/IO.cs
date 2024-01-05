@@ -1,4 +1,6 @@
-﻿namespace SyncDir;
+﻿using System.Drawing;
+
+namespace SyncDir;
 
 public static class IO
 {
@@ -114,7 +116,7 @@ public static class IO
         File.Move(tempFile, destinationFile, true);
         File.Delete(tempFile); // Clean up the temp file
         // IO.FinishUpload(Path.GetFileName(sourceFile));
-        Console.WriteLine($"{sourceFile} 을(를) {destinationFile} 으로 복사(업로드) 완료");
+        Console.WriteLine($"{sourceFile} 을(를) {destinationFile} 으로 복사(업로드) 완료"); 
     }
 
     public async static Task DeleteTempFilesAsync(string directoryPath)

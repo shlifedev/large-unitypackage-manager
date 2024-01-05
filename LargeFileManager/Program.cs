@@ -40,13 +40,13 @@ class Program
         Console.WriteLine(regexPattern);
 
         var fm = new FileManager(path, (string.IsNullOrEmpty(regexPattern) ? ".*\\.unitypackage|.zip|.7z" : regexPattern)); 
-        await fm.Initialize(); assetstore.unity.com
+        await fm.Initialize();  
         UpdateUserInput(fm);
 #endif
 
 #if DEBUG
 
-        var fm = new FileManager(@"H:\Tera\UnSync\TDL\tdl", ".*\\.unitypackage|.zip|.7z");
+        var fm = new FileManager(@"Z:\home\Sync\Unity Hub", ".*\\.unitypackage|.zip|.7z");
         await fm.Initialize(); 
         UpdateUserInput(fm);
 #endif

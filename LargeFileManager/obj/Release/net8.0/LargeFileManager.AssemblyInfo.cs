@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("SyncDirManager2")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("LargeFileDPS")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4487fd26bcc41d497d3b7fb1ad2eb9b326f2a8be")]
-[assembly: System.Reflection.AssemblyProductAttribute("SyncDirManager2")]
-[assembly: System.Reflection.AssemblyTitleAttribute("SyncDirManager2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyProductAttribute("LargeFileDPS")]
+[assembly: System.Reflection.AssemblyTitleAttribute("LargeFileDPS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // MSBuild WriteCodeFragment 클래스에서 생성되었습니다.
