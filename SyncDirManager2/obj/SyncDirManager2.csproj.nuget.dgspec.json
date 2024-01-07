@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\shlif\\RiderProjects\\Solution2\\SyncDirManager2\\SyncDirManager2.csproj": {}
+    "C:\\Users\\shlif\\RiderProjects\\Solution2\\syncdirmanager2\\SyncDirManager2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shlif\\RiderProjects\\Solution2\\SyncDirManager2\\SyncDirManager2.csproj": {
+    "C:\\Users\\shlif\\RiderProjects\\Solution2\\syncdirmanager2\\SyncDirManager2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shlif\\RiderProjects\\Solution2\\SyncDirManager2\\SyncDirManager2.csproj",
+        "projectUniqueName": "C:\\Users\\shlif\\RiderProjects\\Solution2\\syncdirmanager2\\SyncDirManager2.csproj",
         "projectName": "SyncDirManager2",
-        "projectPath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\SyncDirManager2\\SyncDirManager2.csproj",
+        "projectPath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\syncdirmanager2\\SyncDirManager2.csproj",
         "packagesPath": "C:\\Users\\shlif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\SyncDirManager2\\obj\\",
+        "outputPath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\syncdirmanager2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Google.Apis.Drive.v3": {
+              "target": "Package",
+              "version": "[1.64.0.3256, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

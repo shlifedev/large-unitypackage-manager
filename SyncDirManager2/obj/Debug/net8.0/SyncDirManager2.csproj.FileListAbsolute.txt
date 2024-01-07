@@ -13,3 +13,14 @@ C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Debug\net8.0\refint\S
 C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Debug\net8.0\SyncDirManager2.pdb
 C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Debug\net8.0\SyncDirManager2.genruntimeconfig.cache
 C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Debug\net8.0\ref\SyncDirManager2.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Debug\net8.0\Google.Apis.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Debug\net8.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Debug\net8.0\Google.Apis.Drive.v3.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Debug\net8.0\System.Management.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Debug\net8.0\SyncDirManager2.csproj.AssemblyReference.cache
+C:\Users\shlif\RiderProjects\Solution2\SyncDirManager2\obj\Debug\net8.0\SyncDirManager2.csproj.CopyComplete

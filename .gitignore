@@ -1,2 +1,6 @@
 ﻿**/config.json
 .fake
+**/credentials.json 
+**/token.json
+[Bb]in
+[Oo]bj
