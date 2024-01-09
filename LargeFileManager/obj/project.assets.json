@@ -8,31 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\shlif\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\shlif\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shlif\\RiderProjects\\Solution2\\LargeFileManager\\LargeFileManager.csproj",
+      "projectUniqueName": "E:\\src\\FileManager\\Solution2\\LargeFileManager\\LargeFileManager.csproj",
       "projectName": "LargeFileDPS",
-      "projectPath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\LargeFileManager\\LargeFileManager.csproj",
+      "projectPath": "E:\\src\\FileManager\\Solution2\\LargeFileManager\\LargeFileManager.csproj",
       "packagesPath": "C:\\Users\\shlif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\LargeFileManager\\obj\\",
+      "outputPath": "E:\\src\\FileManager\\Solution2\\LargeFileManager\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\shlif\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\shlif\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AtJtIVVOAGdtf1zRPdv6eyby0ir7lE56cJKdEsQBXqzM55sCbCvxsmiE4XLpxb+dFsH5HAhPHuLQLobKmAXQDA==",
+  "dgSpecHash": "wM0u9OzPm0A6THGUJvr7lnWYObrKZoKx4H8BoaH53n+7Y3IjOPctUeyJJGKomLzv+j11e4vqR0BIQmPNjsi9vg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\syncdirmanager2\\SyncDirManager2.csproj",
+  "projectFilePath": "E:\\src\\FileManager\\Solution2\\SyncDirManager2\\SyncDirManager2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shlif\\.nuget\\packages\\google.apis\\1.64.0\\google.apis.1.64.0.nupkg.sha512",
     "C:\\Users\\shlif\\.nuget\\packages\\google.apis.auth\\1.64.0\\google.apis.auth.1.64.0.nupkg.sha512",

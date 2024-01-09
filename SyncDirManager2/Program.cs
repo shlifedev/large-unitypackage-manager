@@ -94,42 +94,54 @@ class Program
                                     splits[0] = splits[0].Replace("(", null);
                                     splits[^1] = splits[^1].Replace(")", null);
                                     folders = splits;
-                                } 
+                                }
                             }
 
                             break;
                     }
                 }
-            }
 
-            if (sourceOrFolderId == null || dest == null || mode == null)
-            {
-                throw new Exception("args is null!!!");
-            }
-            if (mode == "drive")
-            {
-                if (folders != null && folders.Length != 0)
+
+                if (sourceOrFolderId == null || dest == null || mode == null)
                 {
-                    foreach (var folder in folders)
+                    throw new Exception("args is null!!!");
+                }
+
+                if (mode == "drive")
+                {
+                    if (folders != null && folders.Length != 0)
                     {
-                        var google = new GoogleDriveToLocalSync(folder, dest);
+                        foreach (var folder in folders)
+                        {
+                            var google = new GoogleDriveToLocalSync(folder, dest);
+                            await google.SyncAsync();
+                        }
+
+                    }
+                    else
+                    {
+                        var google = new GoogleDriveToLocalSync(sourceOrFolderId, dest);
                         await google.SyncAsync();
                     }
 
                 }
-                else
+                else if (mode == "sync")
                 {
-                    var google = new GoogleDriveToLocalSync(sourceOrFolderId, dest);
-                    await google.SyncAsync();
+                    var temp = new LocalDiskToNetworkDiskSync(sourceOrFolderId, dest, 4);
+                    await temp.SyncAsync();
+                    await IO.DeleteTempFilesAsync(dest);
                 }
-
             }
-            else if (mode == "sync")
+            else
             {
-                var temp = new LocalDiskToNetworkDiskSync(sourceOrFolderId, dest, 4);
+                string pathA = @"Z:\"; // 경로 A 
+                string pathB = @"H:\먀옹님의 공유 허브"; // 경로 B  
+                var temp = new LocalDiskToNetworkDiskSync(pathA, pathB, 4);
                 await temp.SyncAsync();
-                await IO.DeleteTempFilesAsync(dest);
+                await IO.DeleteTempFilesAsync(pathB);
+                
             }
+
             // {
             //     var google = new GoogleDriveToLocalSync("1e1_KFDIUVPVwMXEJczAaXHR9YS3bq83f", @"Z:\home\Sync\Udemy Hub");
             //     await google.SyncAsync();
@@ -138,14 +150,12 @@ class Program
                 // var google = new GoogleDriveToLocalSync("1u8sHxYYVJI7cqC7CmVIPwqMDcmVydJ7J", @"Z:\home\Sync\Udemy Hub");
                 // await google.SyncAsync(); 
             }
-            // string pathA = @"F:\Sync"; // 경로 A 
-            // string pathB = @"Z:\home\Sync"; // 경로 B  
+       
             // //
-            // // var temp = new LocalDiskToNetworkDiskSync(pathA, pathB, 4);
-            // // await temp.SyncAsync();
+ 
             // //
             // // Console.WriteLine("Program End, delete temporary");
-            // await IO.DeleteTempFilesAsync(pathB);
+ 
             // await IO.ConvertAllFilesEncoding(pathB, "html", Encoding.UTF8, Encoding.Unicode);
             //
         }
