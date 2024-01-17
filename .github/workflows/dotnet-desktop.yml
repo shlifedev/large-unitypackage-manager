@@ -48,9 +48,9 @@ jobs:
       id: upload_release_asset
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./publish/project
-        asset_name: project-${{ matrix.os == 'windows-latest' && 'windows' || matrix.os == 'ubuntu-latest' && 'linux' || matrix.os == 'macos-latest' && 'macos' }}
+        upload_url: https://uploads.github.com/repos/shlifedev/large-unitypackage-manager/releases/137385646/assets{?name,label}
+        asset_path: ./publish/
+        asset_name: release
         asset_content_type: application/octet-stream
