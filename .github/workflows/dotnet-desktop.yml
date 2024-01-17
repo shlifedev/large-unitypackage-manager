@@ -7,14 +7,15 @@ on:
         description: 'Release Name'
         required: true
       tagName:
-        description : 'Tag Name'
+        description: 'Tag Name'
         required: true
 
 env:
-   TAG_NAME: ${{ github.event.inputs.tagName }}
-   DOTNET_VERSION: '8.0.x'
-   RELEASE_NAME: ${{ github.event.inputs.releaseName }}
-   PROJECT_PATH: 'LargeFileManager.sln' # Update this with the path to your solution file
+  DOTNET_VERSION: '8.0.x'
+  RELEASE_NAME: ${{ github.event.inputs.releaseName }}
+  TAG_NAME: ${{ github.event.inputs.tagName }}
+  PROJECT_PATH: 'LargeFileManager.sln' # Update this with the path to your solution file
+
 jobs:
   build:
     name: Build
@@ -22,21 +23,34 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
+
     steps:
-    - name: Setup .NET Core 
+    - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
-        
+    
     - name: Check out code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Build Project
-      run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --self-contained true --runtime ${{
-        matrix.os == 'windows-latest' && 'win-x64' ||
-        matrix.os == 'ubuntu-latest' && 'linux-x64' ||
-        matrix.os == 'macos-latest' && 'osx-x64'}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ./publish
+      run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --runtime ${{
+          matrix.os == 'windows-latest' && 'win-x64' ||
+          matrix.os == 'ubuntu-latest' && 'linux-x64' ||
+          matrix.os == 'macos-latest' && 'osx-x64'}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ./publish
       
+    - name: Create Zip archive
+      run: tar czvf ./publish/${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz -C ./publish .
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz
+        path: ./publish/${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -47,16 +61,37 @@ jobs:
         release_name: ${{ env.RELEASE_NAME }}
         draft: false
         prerelease: false
+    
+    - name: Download Artifacts
+      uses: actions/download-artifact@v2
 
-    - name: Create Zip archive
-      run: tar cvzf release.tar.gz ./publish/*
-
-    - name: Upload files
+    - name: Upload Release Asset - Windows
       uses: actions/upload-release-asset@v1
       env:
-       GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-       upload_url: https://uploads.github.com/repos/shlifedev/large-unitypackage-manager/releases/137385646/assets{?name,label}
-       asset_path: ./release.tar.gz
-       asset_name: release.tar.gz
-       asset_content_type: application/gzip
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./windows-latest-artifact/${{ env.RELEASE_NAME }}-windows-latest.tar.gz
+        asset_name: ${{ env.RELEASE_NAME }}-windows-latest.tar.gz
+        asset_content_type: application/gzip
+    
+    - name: Upload Release Asset - MacOS
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./macos-latest-artifact/${{ env.RELEASE_NAME }}-macos-latest.tar.gz
+        asset_name: ${{ env.RELEASE_NAME }}-macos-latest.tar.gz
+        asset_content_type: application/gzip
+
+    - name: Upload Release Asset - Linux
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./ubuntu-latest-artifact/${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
+        asset_name: ${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
+        asset_content_type: application/gzip
+        
