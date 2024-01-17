@@ -8,10 +8,12 @@ on:
     inputs:
       releaseName:
         description: 'Release Name'
-        required: true
+        required: false
+        default: ${{ github.event.repository.name }}
       tagName:
         description: 'Tag Name'
-        required: true
+        required: false
+        default: ${{ github.sha }}
 
 env:
   DOTNET_VERSION: '8.0.x'
