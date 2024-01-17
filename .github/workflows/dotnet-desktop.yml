@@ -6,8 +6,12 @@ on:
       releaseName:
         description: 'Release Name'
         required: true
+      tagName:
+        description : 'Tag Name'
+        required: true
 
 env:
+   TAG_NAME: ${{ github.event.inputs.tagName }}
    DOTNET_VERSION: '8.0.x'
    RELEASE_NAME: ${{ github.event.inputs.releaseName }}
    PROJECT_PATH: 'LargeFileManager.sln' # Update this with the path to your solution file
@@ -39,7 +43,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-        tag_name: ${{ env.RELEASE_NAME }}
+        tag_name: ${{ env.TAG_NAME }}
         release_name: ${{ env.RELEASE_NAME }}
         draft: false
         prerelease: false
