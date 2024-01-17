@@ -19,8 +19,10 @@ class Program
     static async Task Main(string[] args)
     {
 #if RELEASE
+        
         string path = null;
         string regexPattern = null;
+     
         bool isReady = false;
         for (int i = 0; i < args.Length; ++i) 
         {
@@ -36,17 +38,14 @@ class Program
             }
         }
 
-        Console.WriteLine(path);
-        Console.WriteLine(regexPattern);
-
+        
         var fm = new FileManager(path, (string.IsNullOrEmpty(regexPattern) ? ".*\\.unitypackage|.zip|.7z" : regexPattern)); 
         await fm.Initialize();  
         UpdateUserInput(fm);
 #endif
 
-#if DEBUG
-
-        var fm = new FileManager(@"Z:\home\Sync\Unity Hub", ".*\\.unitypackage|.zip|.7z");
+#if DEBUG 
+        var fm = new FileManager(@"/Users/shlifedev/rclone/nas-et/home/Sync/Unity Hub", ".*\\.unitypackage|.zip|.7z");
         await fm.Initialize(); 
         UpdateUserInput(fm);
 #endif

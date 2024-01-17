@@ -8,31 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\shlif\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/shlifedev/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shlif\\RiderProjects\\Solution2\\LargeFileManager\\LargeFileManager.csproj",
+      "projectUniqueName": "/Users/shlifedev/src/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
       "projectName": "LargeFileDPS",
-      "projectPath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\LargeFileManager\\LargeFileManager.csproj",
-      "packagesPath": "C:\\Users\\shlif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\LargeFileManager\\obj\\",
+      "projectPath": "/Users/shlifedev/src/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
+      "packagesPath": "/Users/shlifedev/.nuget/packages/",
+      "outputPath": "/Users/shlifedev/src/large-unitypackage-manager/LargeFileManager/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\shlif\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/shlifedev/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -66,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/shlifedev/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

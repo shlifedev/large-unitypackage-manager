@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HsvlObfm5uTMn5hXtf1XTBfYHiKWNlHM9WTLrJoPbNju4WpNfXCqU4ZdhEOCncIlLvmcRszcKixOimGrgWEhJQ==",
+  "dgSpecHash": "kHZaaJWSJ5B/Pito0c0TyceU/VFbciXHMxJ3mr+1/v1JxlQ/TXWumowPwtXsI8Jf3GDV+5k5sZ7YZHTVpNEH5w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\SyncDirManager2\\SyncDirManager2.csproj",
+  "projectFilePath": "/Users/shlifedev/src/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

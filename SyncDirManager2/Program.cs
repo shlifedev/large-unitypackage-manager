@@ -42,8 +42,8 @@ class Program
     }
     else
     {
-        var temp = new LocalDiskToNetworkDiskSync(12);
-        await temp.SyncAsync(source, destination);
+        var temp = new LocalDiskToNetworkDiskSync(source, destination,12);
+        await temp.SyncAsync();
 
         Console.WriteLine("Program End, Wait Delete Temporary");
         await IO.DeleteTempFilesAsync(destination);

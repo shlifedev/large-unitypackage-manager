@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NchAmYLSbIbmDqr9XXZOkuJZvPhV0aR7FgD2YG6P0Ixd1MlbaErFt6xWm5I6+HGhJ1Gf6QshxoT3aKzH8qkhbQ==",
+  "dgSpecHash": "oldsXNEoxBGRKolIC+0+S+bAY4U2R1XhmfF0gZTvMUHnAxOMYw4qkjbRMH1rIUU5neRBP8ce2SfdgPJm2RyAWQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shlif\\RiderProjects\\Solution2\\LargeFileManager\\LargeFileManager.csproj",
+  "projectFilePath": "/Users/shlifedev/src/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LD
-build_property.ProjectDir = C:\Users\shlif\RiderProjects\Solution2\LargeFileManager\
+build_property.ProjectDir = /Users/shlifedev/src/large-unitypackage-manager/LargeFileManager/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
