@@ -48,7 +48,7 @@ jobs:
         name: ${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz
         path: ./publish/${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz
 
-  release:
+release:
   needs: [build]
   runs-on: ubuntu-latest
   steps:
