@@ -8,10 +8,9 @@ on:
         required: true
 
 env:
-  DOTNET_VERSION: '8.0.x'
-  RELEASE_NAME: ${{ github.event.inputs.releaseName }}
-  PROJECT_PATH: '/path/to/your/project.csproj' # Update this with the path to your project file
-
+   DOTNET_VERSION: '8.0.x'
+   RELEASE_NAME: ${{ github.event.inputs.releaseName }}
+   PROJECT_PATH: 'LargeFileManager.sln.sln' # Update this with the path to your solution file
 jobs:
   build:
     name: Build
