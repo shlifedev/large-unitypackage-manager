@@ -35,10 +35,10 @@ jobs:
 
     - name: Build Project
       run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --runtime ${{
-          matrix.os == 'windows-latest' && 'win-x64' ||
-          matrix.os == 'ubuntu-latest' && 'linux-x64' ||
-          matrix.os == 'macos-latest' && 'osx-x64'}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ./publish
-      
+        matrix.os == 'windows-latest' && 'win-x64' ||
+        matrix.os == 'ubuntu-latest' && 'linux-x64' ||
+        matrix.os == 'macos-latest' && 'osx-x64'}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ./publish
+    
     - name: Create Zip archive
       working-directory: ./publish
       run: tar czvf ../${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz *
@@ -89,7 +89,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./${{ env.RELEASE_NAME }}-windows-latest.tar.gz
+        asset_path: ./$ 
         asset_name: ${{ env.RELEASE_NAME }}-windows-latest.tar.gz
         asset_content_type: application/gzip
     - name: Upload ubuntu-latest Release Asset
