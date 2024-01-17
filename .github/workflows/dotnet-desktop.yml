@@ -1,19 +1,14 @@
 name: Build and Release
 
-on:
-  schedule:
-  - cron: '10 8 * * *'
-  
+on:  
   workflow_dispatch:
     inputs:
       releaseName:
         description: 'Release Name'
-        required: false
-        default: ${{ github.event.repository.name }}
+        required: false 
       tagName:
         description: 'Tag Name'
-        required: false
-        default: ${{ github.sha }}
+        required: true 
 
 env:
   DOTNET_VERSION: '8.0.x'
