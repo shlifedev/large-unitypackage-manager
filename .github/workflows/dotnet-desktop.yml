@@ -40,7 +40,8 @@ jobs:
           matrix.os == 'macos-latest' && 'osx-x64'}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ./publish
       
     - name: Create Zip archive
-      run: tar czvf ./publish/${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz -C ./publish .
+      working-directory: ./publish
+      run: tar czvf ../${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz *
 
     - uses: actions/upload-artifact@v2
       with:
