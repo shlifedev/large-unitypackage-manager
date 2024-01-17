@@ -88,7 +88,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./$ 
+        asset_path: ./${{ env.RELEASE_NAME }}-windows-latest.tar.gz
         asset_name: ${{ env.RELEASE_NAME }}-windows-latest.tar.gz
         asset_content_type: application/gzip
     - name: Upload ubuntu-latest Release Asset
