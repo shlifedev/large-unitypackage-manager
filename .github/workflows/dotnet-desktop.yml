@@ -41,7 +41,7 @@ jobs:
     
     - name: Create Zip archive
       working-directory: ./publish
-      run: tar czvf ../${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz *
+      run: tar czvf ./${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz *
 
     - uses: actions/upload-artifact@v3
       with:
