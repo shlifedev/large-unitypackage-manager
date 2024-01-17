@@ -44,13 +44,15 @@ jobs:
         draft: false
         prerelease: false
 
-    - name: Upload Release Asset
-      id: upload_release_asset
+    - name: Create Zip archive
+      run: tar cvzf release.tar.gz ./publish/*
+
+    - name: Upload files
       uses: actions/upload-release-asset@v1
       env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
-        upload_url: https://uploads.github.com/repos/shlifedev/large-unitypackage-manager/releases/137385646/assets{?name,label}
-        asset_path: ./publish/
-        asset_name: release
-        asset_content_type: application/octet-stream
+       upload_url: https://uploads.github.com/repos/shlifedev/large-unitypackage-manager/releases/137385646/assets{?name,label}
+       asset_path: ./release.tar.gz
+       asset_name: release.tar.gz
+       asset_content_type: application/gzip
