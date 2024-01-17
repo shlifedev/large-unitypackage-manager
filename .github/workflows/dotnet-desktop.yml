@@ -8,7 +8,7 @@ on:
         required: true
 
 env:
-   DOTNET_VERSION: '7.0.0'
+   DOTNET_VERSION: '8.0.x'
    RELEASE_NAME: ${{ github.event.inputs.releaseName }}
    PROJECT_PATH: 'LargeFileManager.sln.sln' # Update this with the path to your solution file
 jobs:
@@ -25,7 +25,7 @@ jobs:
         dotnet-version: ${{ env.DOTNET_VERSION }}
         
     - name: Check out code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Build Project
       run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --self-contained true --runtime ${{
