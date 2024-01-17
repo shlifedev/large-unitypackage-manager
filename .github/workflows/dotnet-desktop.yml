@@ -49,50 +49,66 @@ jobs:
         path: ./publish/${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz
 
   release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      with:
-        tag_name: ${{ env.TAG_NAME }}
-        release_name: ${{ env.RELEASE_NAME }}
-        draft: false
-        prerelease: false
-    
-    - name: Download Artifacts
-      uses: actions/download-artifact@v2
+  needs: [build]
+  runs-on: ubuntu-latest
+  steps:
+  - name: Create Release
+    id: create_release
+    uses: actions/create-release@v1
+    env:
+      GITHUB_TOKEN: ${{ secrets.TOKEN }}
+    with:
+      tag_name: ${{ env.TAG_NAME }}
+      release_name: ${{ env.RELEASE_NAME }}
+      draft: false
+      prerelease: false
 
-    - name: Upload Release Asset - Windows
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./windows-latest-artifact/${{ env.RELEASE_NAME }}-windows-latest.tar.gz
-        asset_name: ${{ env.RELEASE_NAME }}-windows-latest.tar.gz
-        asset_content_type: application/gzip
-    
-    - name: Upload Release Asset - MacOS
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./macos-latest-artifact/${{ env.RELEASE_NAME }}-macos-latest.tar.gz
-        asset_name: ${{ env.RELEASE_NAME }}-macos-latest.tar.gz
-        asset_content_type: application/gzip
+  # Download the artifacts
+  - name: Download windows-latest artifact
+    uses: actions/download-artifact@v2
+    with:
+      name: ${{ env.RELEASE_NAME }}-windows-latest.tar.gz
+      path: .
+ 
+  - name: Download ubuntu-latest artifact
+    uses: actions/download-artifact@v2
+    with:
+      name: ${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
+      path: .
+ 
+  - name: Download macos-latest artifact
+    uses: actions/download-artifact@v2
+    with:
+      name: ${{ env.RELEASE_NAME }}-macos-latest.tar.gz
+      path: .
+ 
+  # Upload the artifacts to the release
+  - name: Upload windows-latest Release Asset
+    uses: actions/upload-release-asset@v1
+    env:
+      GITHUB_TOKEN: ${{ secrets.TOKEN }}
+    with:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      asset_path: ./${{ env.RELEASE_NAME }}-windows-latest.tar.gz
+      asset_name: ${{ env.RELEASE_NAME }}-windows-latest.tar.gz
+      asset_content_type: application/gzip
+  - name: Upload ubuntu-latest Release Asset
+    uses: actions/upload-release-asset@v1
+    env:
+      GITHUB_TOKEN: ${{ secrets.TOKEN }}
+    with:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      asset_path: ./${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
+      asset_name: ${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
+      asset_content_type: application/gzip
 
-    - name: Upload Release Asset - Linux
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./ubuntu-latest-artifact/${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
-        asset_name: ${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
-        asset_content_type: application/gzip
+  - name: Upload macos-latest Release Asset
+    uses: actions/upload-release-asset@v1
+    env:
+      GITHUB_TOKEN: ${{ secrets.TOKEN }}
+    with:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      asset_path: ./${{ env.RELEASE_NAME }}-macos-latest.tar.gz
+      asset_name: ${{ env.RELEASE_NAME }}-macos-latest.tar.gz
+      asset_content_type: application/gzip
         
