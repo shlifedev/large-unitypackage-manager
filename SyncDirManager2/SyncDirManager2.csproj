@@ -13,4 +13,16 @@
       <PackageReference Include="Google.Apis.Drive.v3" Version="1.64.0.3256" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="~\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="~\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="~\**" />
+    </ItemGroup>
+
 </Project>

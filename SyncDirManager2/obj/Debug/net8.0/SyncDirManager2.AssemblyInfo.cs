@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SyncDirManager2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8baf24aad3ae104c795fb4ca5707210d213a27b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b8f04f90093c30b44d074d8fda90d46698e5c03")]
 [assembly: System.Reflection.AssemblyProductAttribute("SyncDirManager2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SyncDirManager2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
