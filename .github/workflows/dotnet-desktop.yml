@@ -1,0 +1,113 @@
+name: Build and Release
+
+on:  
+  workflow_dispatch:
+    inputs:
+      releaseName:
+        description: 'Release Name'
+        required: false 
+      tagName:
+        description: 'Tag Name'
+        required: true 
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  RELEASE_NAME: ${{ github.event.inputs.releaseName }}
+  TAG_NAME: ${{ github.event.inputs.tagName }}
+  PROJECT_PATH: 'LargeFileManager.sln' # Update this with the path to your solution file
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    steps:
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Build Project
+      run: dotnet publish ${{ env.PROJECT_PATH }} --configuration Release --runtime ${{
+        matrix.os == 'windows-latest' && 'win-x64' ||
+        matrix.os == 'ubuntu-latest' && 'linux-x64' ||
+        matrix.os == 'macos-latest' && 'osx-x64'}} -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o ./publish
+    
+    - name: Create Zip archive
+      working-directory: ./publish
+      run: tar czvf ../${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz *
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz
+        path: ${{ env.RELEASE_NAME }}-${{ matrix.os }}.tar.gz
+
+  release:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        tag_name: ${{ env.TAG_NAME }}
+        release_name: ${{ env.RELEASE_NAME }}
+        draft: false
+        prerelease: false
+
+    # Download the artifacts
+    - name: Download windows-latest artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: ${{ env.RELEASE_NAME }}-windows-latest.tar.gz
+        path: .
+  
+    - name: Download ubuntu-latest artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: ${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
+        path: .
+  
+    - name: Download macos-latest artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: ${{ env.RELEASE_NAME }}-macos-latest.tar.gz
+        path: .
+  
+    # Upload the artifacts to the release
+    - name: Upload windows-latest Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./${{ env.RELEASE_NAME }}-windows-latest.tar.gz
+        asset_name: ${{ env.RELEASE_NAME }}-windows-latest.tar.gz
+        asset_content_type: application/gzip
+    - name: Upload ubuntu-latest Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
+        asset_name: ${{ env.RELEASE_NAME }}-ubuntu-latest.tar.gz
+        asset_content_type: application/gzip
+
+    - name: Upload macos-latest Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./${{ env.RELEASE_NAME }}-macos-latest.tar.gz
+        asset_name: ${{ env.RELEASE_NAME }}-macos-latest.tar.gz
+        asset_content_type: application/gzip
+          

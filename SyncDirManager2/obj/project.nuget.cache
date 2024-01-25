@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "tXMqawuakOnLIvzefuTTv20tJqHvaNL2YOdTTyGvM00gg3SNURGhFFc8UPpV182pVNSdl27fIrpjvXNkDh8WeQ==",
   "success": true,
   "projectFilePath": "/Users/shlifedev/Documents/src/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
@@ -12,5 +13,11 @@
     "/Users/shlifedev/.nuget/packages/system.codedom/7.0.0/system.codedom.7.0.0.nupkg.sha512",
     "/Users/shlifedev/.nuget/packages/system.management/7.0.2/system.management.7.0.2.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "kHZaaJWSJ5B/Pito0c0TyceU/VFbciXHMxJ3mr+1/v1JxlQ/TXWumowPwtXsI8Jf3GDV+5k5sZ7YZHTVpNEH5w==",
+  "success": true,
+  "projectFilePath": "/Users/shlifedev/src/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> main
   "logs": []
 }

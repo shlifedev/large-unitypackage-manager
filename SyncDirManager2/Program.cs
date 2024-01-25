@@ -81,7 +81,30 @@ class Program
                 await IO.DeleteTempFilesAsync(dest);
             }
         }
+<<<<<<< HEAD
         else
+=======
+    }
+
+    if (source == null || destination == null)
+    {
+        Console.WriteLine("Error: You must specify both - and -");
+        Thread.Sleep(1000);
+        return;
+    }
+    else
+    {
+        var temp = new LocalDiskToNetworkDiskSync(source, destination,12);
+        await temp.SyncAsync();
+
+        Console.WriteLine("Program End, Wait Delete Temporary");
+        await IO.DeleteTempFilesAsync(destination);
+    }
+}
+#endif
+
+#if DEBUG
+>>>>>>> main
         {
             throw new Exception("Require Argments.");
         } 
