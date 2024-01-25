@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "30uEvUIHQEP9w3Akm88EETyjt4LerMUolMTe07z/rSLgS0tVFsibehCMDKHoeK7gyamUsW1i+hXfc1T/d8nUxw==",
+  "dgSpecHash": "LIZt+yF6AtfqT22pPCFAqPqa/oN8hd9Dl33G/NPsUt7pTvpxFGYMbr7l/NJjR9sDpk41c26GPdMC6f5R0ZwJTQ==",
   "success": true,
-  "projectFilePath": "E:\\src\\FileManager\\Solution2\\LargeFileManager\\LargeFileManager.csproj",
+  "projectFilePath": "/Users/shlifedev/Documents/src/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
