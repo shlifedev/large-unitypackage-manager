@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "wM0u9OzPm0A6THGUJvr7lnWYObrKZoKx4H8BoaH53n+7Y3IjOPctUeyJJGKomLzv+j11e4vqR0BIQmPNjsi9vg==",
+  "dgSpecHash": "tXMqawuakOnLIvzefuTTv20tJqHvaNL2YOdTTyGvM00gg3SNURGhFFc8UPpV182pVNSdl27fIrpjvXNkDh8WeQ==",
   "success": true,
-  "projectFilePath": "E:\\src\\FileManager\\Solution2\\SyncDirManager2\\SyncDirManager2.csproj",
+  "projectFilePath": "/Users/shlifedev/Documents/src/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\shlif\\.nuget\\packages\\google.apis\\1.64.0\\google.apis.1.64.0.nupkg.sha512",
-    "C:\\Users\\shlif\\.nuget\\packages\\google.apis.auth\\1.64.0\\google.apis.auth.1.64.0.nupkg.sha512",
-    "C:\\Users\\shlif\\.nuget\\packages\\google.apis.core\\1.64.0\\google.apis.core.1.64.0.nupkg.sha512",
-    "C:\\Users\\shlif\\.nuget\\packages\\google.apis.drive.v3\\1.64.0.3256\\google.apis.drive.v3.1.64.0.3256.nupkg.sha512",
-    "C:\\Users\\shlif\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\shlif\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
-    "C:\\Users\\shlif\\.nuget\\packages\\system.management\\7.0.2\\system.management.7.0.2.nupkg.sha512"
+    "/Users/shlifedev/.nuget/packages/google.apis/1.64.0/google.apis.1.64.0.nupkg.sha512",
+    "/Users/shlifedev/.nuget/packages/google.apis.auth/1.64.0/google.apis.auth.1.64.0.nupkg.sha512",
+    "/Users/shlifedev/.nuget/packages/google.apis.core/1.64.0/google.apis.core.1.64.0.nupkg.sha512",
+    "/Users/shlifedev/.nuget/packages/google.apis.drive.v3/1.64.0.3256/google.apis.drive.v3.1.64.0.3256.nupkg.sha512",
+    "/Users/shlifedev/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/shlifedev/.nuget/packages/system.codedom/7.0.0/system.codedom.7.0.0.nupkg.sha512",
+    "/Users/shlifedev/.nuget/packages/system.management/7.0.2/system.management.7.0.2.nupkg.sha512"
   ],
   "logs": []
 }

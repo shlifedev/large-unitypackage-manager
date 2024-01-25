@@ -27,10 +27,20 @@ public class GoogleDriveToLocalSync : IDirectorySync
         request.Q = $"'{folderId}' in parents";  
         request.Fields = "files(id, name, size, mimeType)"; // Include the 'size' field 
         var result = await request.ExecuteAsync(); 
-        
-        
+         
         foreach (var file in result.Files)
-        {  
+        {
+            if (file.MimeType == "application/vnd.google-apps.shortcut")
+            {  
+                FilesResource.GetRequest req = service.Files.Get(file.Id);
+                req.Fields = "shortcutDetails/targetId";
+                var shortcut = req.ExecuteAsync();
+                string targetId = shortcut.Result.ShortcutDetails.TargetId;
+                var newLocalPath = Path.Combine(localPath, file.Name);
+                Directory.CreateDirectory(newLocalPath);  // Create the directory if it does not exist
+                await DownloadAllFiles(service, targetId, newLocalPath);
+         
+            } 
             if (file.MimeType == "application/vnd.google-apps.folder")
             {
                 // This is a folder, we need to recursively download its contents
@@ -39,8 +49,8 @@ public class GoogleDriveToLocalSync : IDirectorySync
                 await DownloadAllFiles(service, file.Id, newLocalPath);
             }
             else
-            { 
-                
+            {
+                Console.WriteLine(file.MimeType);
                 await DownloadFile(service, file, localPath); 
             }
         }
