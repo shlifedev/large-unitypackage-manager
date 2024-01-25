@@ -2,5 +2,5 @@
 
 public static class Const
 {
-    public static readonly string TmpExtensionName = "synctmp";
+    public static readonly string TmpExtensionName = "tmpsync";
 }

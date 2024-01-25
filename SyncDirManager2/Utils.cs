@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace SyncDir;
@@ -32,6 +33,39 @@ public static class Utils
         return !string.IsNullOrEmpty(path) && Directory.Exists(path);
     }
 
+ 
+    
+    
+    public static void CheckFilesInDirectory(string dirPath, string ext1, string ext2)
+    {
+        var filesExt1 = Directory.GetFiles(dirPath, $"*.{ext1}", SearchOption.AllDirectories);
+        var filesExt2 = Directory.GetFiles(dirPath, $"*.{ext2}", SearchOption.AllDirectories);
+
+        foreach (var fileExt1 in filesExt1)
+        {
+            if (fileExt1.EndsWith("_ko.srt") || fileExt1.EndsWith("_vi.srt")) continue;
+            
+            var matchingFileExt2 = Path.ChangeExtension(fileExt1, ext2);
+
+            if (!File.Exists(matchingFileExt2))
+            {
+                Console.WriteLine($"'{Path.GetFileName(fileExt1)}' has no matching .{ext2} file in '{fileExt1}'");
+            }
+        }
+
+        foreach (var fileExt2 in filesExt2)
+        {
+            if (fileExt2.EndsWith("_ko.srt") || fileExt2.EndsWith("_vi.srt")) continue;
+            var matchingFileExt1 = Path.ChangeExtension(fileExt2, ext1);
+
+            if (!File.Exists(matchingFileExt1))
+            {
+                Console.WriteLine($"'{Path.GetFileName(fileExt2)}' has no matching .{ext1} file in '{fileExt2}'");
+            }
+        }
+    }
+    
+    
  
     /// <summary>
     /// 중복되는 파일을 삭제, (수정시간, 파일 사이즈로 유추함.)

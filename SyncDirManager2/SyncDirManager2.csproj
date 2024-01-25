@@ -9,4 +9,8 @@
         <PackageId>SyncDirManager2</PackageId>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Google.Apis.Drive.v3" Version="1.64.0.3256" />
+    </ItemGroup>
+
 </Project>
