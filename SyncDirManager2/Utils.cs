@@ -23,6 +23,31 @@ public static class Utils
         return driveInfo.DriveType == DriveType.Network;
     }
 
+    public static List<string> FindEmptyMp4AndSrtFiles(string directoryPath)
+    {
+        List<string> emptyFiles = new List<string>();
+
+        string[] mp4Files = Directory.GetFiles(directoryPath, "*.mp4", SearchOption.AllDirectories);
+        string[] srtFiles = Directory.GetFiles(directoryPath, "*.srt", SearchOption.AllDirectories);
+
+        foreach (string mp4File in mp4Files)
+        {
+            if (new FileInfo(mp4File).Length == 0)
+            {
+                emptyFiles.Add(mp4File);
+            }
+        }
+
+        foreach (string srtFile in srtFiles)
+        {
+            if (new FileInfo(srtFile).Length == 0)
+            {
+                emptyFiles.Add(srtFile);
+            }
+        }
+
+        return emptyFiles;
+    }
     /// <summary>
     /// 경로가 존재하는지 확인
     /// </summary>

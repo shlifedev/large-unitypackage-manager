@@ -38,8 +38,7 @@ public class GoogleDriveToLocalSync : IDirectorySync
                 string targetId = shortcut.Result.ShortcutDetails.TargetId;
                 var newLocalPath = Path.Combine(localPath, file.Name);
                 Directory.CreateDirectory(newLocalPath);  // Create the directory if it does not exist
-                await DownloadAllFiles(service, targetId, newLocalPath);
-         
+                await DownloadAllFiles(service, targetId, newLocalPath); 
             } 
             if (file.MimeType == "application/vnd.google-apps.folder")
             {
@@ -92,16 +91,16 @@ public class GoogleDriveToLocalSync : IDirectorySync
                 File.Move(tempFilePath, localFilePath);
             }
             catch (Exception e)
-            {
-                await Task.Delay(1000);
-                File.Move(tempFilePath, localFilePath);
+            { 
+                DownloadFailedPath.Add(localFilePath);
+                Console.WriteLine($"다운로드 실패 {localFilePath}");  
             }
             finally
             {
                 if (!File.Exists(localFilePath))
                 {
                     DownloadFailedPath.Add(localFilePath);
-                    throw new Exception($"다운로드 실패 {localFilePath}");  
+                    Console.WriteLine($"다운로드 실패 {localFilePath}");  
                 }
                 else
                 { 

@@ -54,10 +54,20 @@ class Program
 
                         break;
                 }
+            } 
+            if (mode == "find-empty")
+            {
+                if (string.IsNullOrEmpty(dest))
+                {
+                    throw new Exception("destination not defined. use -d or --dest arg");
+                }
+                var finded = Utils.FindEmptyMp4AndSrtFiles(dest);
+                foreach (var find in finded)
+                {
+                    Console.WriteLine(find);
+                } 
             }
-
-
-            if (mode == "drive")
+            else if (mode == "drive")
             {
                 if (folders != null && folders.Any())
                 {
