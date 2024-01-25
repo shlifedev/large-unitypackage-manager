@@ -11,7 +11,7 @@ class Program
 
     static async Task Main(string[] args)
     {
-        IDirectorySync sync = null; 
+        IDirectorySync sync = null;
         string mode = null;
         string dest = null;
         string sourceOrFolderId = null;
@@ -54,8 +54,8 @@ class Program
 
                         break;
                 }
-            } 
- 
+            }
+
 
             if (mode == "drive")
             {
@@ -65,7 +65,7 @@ class Program
                     {
                         var google = new GoogleDriveToLocalSync(folder, dest);
                         await google.SyncAsync();
-                    } 
+                    }
                 }
                 else
                 {
@@ -81,32 +81,5 @@ class Program
                 await IO.DeleteTempFilesAsync(dest);
             }
         }
-<<<<<<< HEAD
-        else
-=======
     }
-
-    if (source == null || destination == null)
-    {
-        Console.WriteLine("Error: You must specify both - and -");
-        Thread.Sleep(1000);
-        return;
-    }
-    else
-    {
-        var temp = new LocalDiskToNetworkDiskSync(source, destination,12);
-        await temp.SyncAsync();
-
-        Console.WriteLine("Program End, Wait Delete Temporary");
-        await IO.DeleteTempFilesAsync(destination);
-    }
-}
-#endif
-
-#if DEBUG
->>>>>>> main
-        {
-            throw new Exception("Require Argments.");
-        } 
-    } 
 }

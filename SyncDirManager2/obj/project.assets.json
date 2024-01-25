@@ -321,19 +321,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "/Users/shlifedev/Documents/src/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
       "projectName": "SyncDirManager2",
       "projectPath": "/Users/shlifedev/Documents/src/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
       "packagesPath": "/Users/shlifedev/.nuget/packages/",
       "outputPath": "/Users/shlifedev/Documents/src/large-unitypackage-manager/SyncDirManager2/obj/",
-=======
-      "projectUniqueName": "/Users/shlifedev/src/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
-      "projectName": "SyncDirManager2",
-      "projectPath": "/Users/shlifedev/src/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
-      "packagesPath": "/Users/shlifedev/.nuget/packages/",
-      "outputPath": "/Users/shlifedev/src/large-unitypackage-manager/SyncDirManager2/obj/",
->>>>>>> main
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/shlifedev/.nuget/NuGet/NuGet.Config"
@@ -381,12 +373,16 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "/Users/shlifedev/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
->>>>>>> main
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/shlifedev/Documents/src/large-unitypackage-manager/SyncDirManager2/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
