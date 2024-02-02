@@ -23,6 +23,7 @@ public static class Utils
         return driveInfo.DriveType == DriveType.Network;
     }
 
+ 
     public static List<string> FindEmptyMp4AndSrtFiles(string directoryPath)
     {
         List<string> emptyFiles = new List<string>();
@@ -53,14 +54,12 @@ public static class Utils
     /// </summary>
     /// <param name="path"></param>
     /// <returns></returns>
+    
     public static bool IsValidDirectoryPath(string path)
     {
         return !string.IsNullOrEmpty(path) && Directory.Exists(path);
     }
-
- 
-    
-    
+            
     public static void CheckFilesInDirectory(string dirPath, string ext1, string ext2)
     {
         var filesExt1 = Directory.GetFiles(dirPath, $"*.{ext1}", SearchOption.AllDirectories);

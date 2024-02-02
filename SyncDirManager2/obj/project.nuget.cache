@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tXMqawuakOnLIvzefuTTv20tJqHvaNL2YOdTTyGvM00gg3SNURGhFFc8UPpV182pVNSdl27fIrpjvXNkDh8WeQ==",
+  "dgSpecHash": "/uPG+oogHd+ggFwuGSS/LK7VN2wmAQiI1DHKA01OK9JHXhbb2tyR34O7OV6FOewc4WHsB26q0iOT8OpYJvvAvA==",
   "success": true,
-  "projectFilePath": "/Users/shlifedev/Documents/src/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
+  "projectFilePath": "/Users/shlifedev/Documents/src/GitHub/large-unitypackage-manager/SyncDirManager2/SyncDirManager2.csproj",
   "expectedPackageFiles": [
     "/Users/shlifedev/.nuget/packages/google.apis/1.64.0/google.apis.1.64.0.nupkg.sha512",
     "/Users/shlifedev/.nuget/packages/google.apis.auth/1.64.0/google.apis.auth.1.64.0.nupkg.sha512",
@@ -12,12 +12,5 @@
     "/Users/shlifedev/.nuget/packages/system.codedom/7.0.0/system.codedom.7.0.0.nupkg.sha512",
     "/Users/shlifedev/.nuget/packages/system.management/7.0.2/system.management.7.0.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/shlifedev/Documents/src/large-unitypackage-manager/SyncDirManager2/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

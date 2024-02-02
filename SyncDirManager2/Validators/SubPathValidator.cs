@@ -1,4 +1,4 @@
-﻿
+﻿ 
 public class SubPathValidator : IValidator
 {
     private readonly string _pathA;

@@ -13,19 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "/Users/shlifedev/Documents/src/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
+      "projectUniqueName": "/Users/shlifedev/Documents/src/GitHub/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
       "projectName": "LargeFileDPS",
-      "projectPath": "/Users/shlifedev/Documents/src/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
+      "projectPath": "/Users/shlifedev/Documents/src/GitHub/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
       "packagesPath": "/Users/shlifedev/.nuget/packages/",
-      "outputPath": "/Users/shlifedev/Documents/src/large-unitypackage-manager/LargeFileManager/obj/",
-=======
-      "projectUniqueName": "/Users/shlifedev/src/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
-      "projectName": "LargeFileDPS",
-      "projectPath": "/Users/shlifedev/src/large-unitypackage-manager/LargeFileManager/LargeFileManager.csproj",
-      "packagesPath": "/Users/shlifedev/.nuget/packages/",
-      "outputPath": "/Users/shlifedev/src/large-unitypackage-manager/LargeFileManager/obj/",
->>>>>>> main
+      "outputPath": "/Users/shlifedev/Documents/src/GitHub/large-unitypackage-manager/LargeFileManager/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/shlifedev/.nuget/NuGet/NuGet.Config"
@@ -67,12 +59,16 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "/Users/shlifedev/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
->>>>>>> main
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/shlifedev/Documents/src/GitHub/large-unitypackage-manager/LargeFileManager/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

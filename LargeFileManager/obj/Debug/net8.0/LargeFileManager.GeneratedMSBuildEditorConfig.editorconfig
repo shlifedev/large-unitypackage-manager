@@ -8,10 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LD
-<<<<<<< HEAD
-build_property.ProjectDir = /Users/shlifedev/Documents/src/large-unitypackage-manager/LargeFileManager/
-=======
-build_property.ProjectDir = /Users/shlifedev/src/large-unitypackage-manager/LargeFileManager/
->>>>>>> main
+build_property.ProjectDir = /Users/shlifedev/Documents/src/GitHub/large-unitypackage-manager/LargeFileManager/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
